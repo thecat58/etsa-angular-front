@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'etsa-front';
+
+  constructor(){
+
+  }
+  ya() {
+    alert('estaremso en contacto')
+  }
 }
+
