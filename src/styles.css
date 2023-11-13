@@ -1,9 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 * {
     font-family: Arial;
 }
-
+app-navbar {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+app-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 
 @media (max-width: 920px) {
     .mat-mdc-dialog-container {
