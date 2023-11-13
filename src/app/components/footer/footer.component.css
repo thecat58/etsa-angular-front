@@ -1,0 +1,34 @@
+.imagen {
+    width: 104px;
+    height: 98px;
+    display: flex;
+}
+footer{
+    background-color: #5E6D8D;
+    display: flex;
+    width: 1500;
+    height: 222px;
+    bottom: 0px;
+    border-radius: 4px;
+}
+.social-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #ffffff; /* Color del ícono */
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #007bff; /* Cambiar color al pasar el mouse */
+}
+
+.imagen img {
+    width: 104px;
+    height: 98px;
+    display: flex;
+}
+ 
