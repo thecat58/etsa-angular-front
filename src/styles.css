@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    font-family: Arial;
+}
+
+
+@media (max-width: 920px) {
+    .mat-mdc-dialog-container {
+        min-width: 40vw !important;
+        max-height: 90vh !important;
+    }
+
+    .mdc-dialog {
+        min-width: 40vw !important;
+        max-height: 90vh !important;
+    }
+}
+
+@media (min-width: 921px) {
+    .mat-mdc-dialog-container {
+        min-width: 32vw !important;
+    }
+
+    .mdc-dialog {
+        min-width: 32vw !important;
+    }
+}

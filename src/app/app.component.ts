@@ -14,5 +14,11 @@ export class AppComponent {
   ya() {
     alert('estaremso en contacto')
   }
+  comerVerduras (){
+    let pepino= String;
+  }
+
+
+  
 }
 
