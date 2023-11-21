@@ -1,34 +1,62 @@
-.imagen {
-    width: 104px;
-    height: 98px;
-    display: flex;
+footer {
+  background: #5E6D8D;
+  display: flex;
+  flex-wrap: wrap;  /*este le da responsive ala caja padre  */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 4px;
 }
-footer{
-    background-color: #5E6D8D;
-    display: flex;
-    width: 1500;
-    height: 222px;
-    bottom: 0px;
-    border-radius: 4px;
+
+.separator {
+  height: 1px;
+  background-color: #ffffff;
+  width: 20%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+.contactos {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.contactos li {
+  margin-right: 20px;
+}
+
 .social-icon {
-    font-size: 24px;
-    margin-right: 8px;
-    color: #ffffff; /* Color del ícono */
+  font-size: 24px;
+  margin-right: 8px;
+  color: #ffffff;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #007bff; /* Cambiar color al pasar el mouse */
+  color: #007bff;
+}
+
+.imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .imagen img {
-    width: 104px;
-    height: 98px;
-    display: flex;
+  width: 104px;
+  height: 98px;
 }
- 
+
+.informacion {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
+}
