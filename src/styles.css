@@ -17,7 +17,6 @@ app-footer {
     width: 100%;
 }
 
-
 @media (max-width: 920px) {
     .mat-mdc-dialog-container {
         min-width: 40vw !important;
