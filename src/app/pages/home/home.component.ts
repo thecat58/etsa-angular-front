@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  kike(){
+    console.log('kkkeke')
+  }
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 1,

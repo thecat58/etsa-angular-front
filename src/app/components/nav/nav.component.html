@@ -12,10 +12,14 @@
   <li class="menu-item">
     <input type="search" name="Buscar" id="search" >
   </li>
-  <li class="item-registrate">
-    <a class="link-registrate" routerLink="active">Registrate</a>
+  <li *ngIf="!userLoginOn" class="item-registrate">
+    <a class="link-registrate" routerLink="">Registrate</a>
   </li>
-  <li class="item-iniciar">
-    <a class="link-login" routerLink="active">Iniciar sesion</a>
+  <li *ngIf="userLoginOn" class="item-iniciar">
+    <a class="link-login" routerLink="login" >Serar sesion</a>
   </li>
-</ul>
+  <li  class="item-iniciar">
+    <a class="link-login" routerLink="login" >Iniciar sesion</a>
+  </li>
+</ul> 
+
