@@ -7,6 +7,10 @@ import { OpinionModel } from 'src/app/models/opinion.models';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  kike(){
+    console.log('kkkeke')
+  }
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 1,
