@@ -1,0 +1,53 @@
+.perfil-card-redes {
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    min-height: 300px; /* Ajusta la altura según tus necesidades */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 20px;
+}
+
+
+
+/* Estilo para la lista de redes sociales */
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+/* Estilo para cada ítem de la lista */
+li {
+    margin-bottom: 15px; /* Espaciado entre ítems */
+    display: flex; /* Usa flexbox para alinear ícono y texto */
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+/* Estilo para los íconos de redes sociales */
+li i {
+    margin-right: 10px; /* Espaciado a la derecha del ícono */
+}
+
+/* Estilo responsive */
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 10px; /* Ajusta el margen para dispositivos pequeños */
+    }
+
+    .perfil-card-redes {
+        width: 100%; /* Ocupa todo el ancho disponible en dispositivos pequeños */
+    }
+}
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  

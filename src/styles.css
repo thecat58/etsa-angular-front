@@ -5,6 +5,10 @@
 * {
     font-family: Arial;
 }
+body {
+background-color: #C1D4E2;
+}
+
 app-navbar {
     top: 0px;
     left: 0px;

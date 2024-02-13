@@ -48,11 +48,13 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  
 }
 
 .imagen img {
   width: 104px;
   height: 98px;
+  border-radius: 10px;
 }
 
 .informacion {
