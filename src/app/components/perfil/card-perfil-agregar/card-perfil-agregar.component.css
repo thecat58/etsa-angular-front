@@ -1,0 +1,50 @@
+.tarjeta {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px; /* Espaciado entre tarjetas */
+}
+
+.perfil-card-agregar img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.btn-actualizar,
+.btn-eliminar {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos responsive */
+@media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column; /* Apilar elementos en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .tarjeta {
+        max-width: 100%;
+        margin-bottom: 20px; /* Espaciado entre tarjetas en pantallas pequeñas */
+    }
+}
+
+
+
+
+
+
+
+

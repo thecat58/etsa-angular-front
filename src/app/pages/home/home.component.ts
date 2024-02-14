@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OpinionModel } from 'src/app/models/opinion.models';
 
 @Component({
   selector: 'app-home',
@@ -18,5 +19,41 @@ export class HomeComponent {
     autoplay: true,
     autoplaySpeed: 2000
   };
+
+  opiniones:OpinionModel[];
+
+  constructor(){
+    this.opiniones = [];
+    
+  }
+  ngOnInit(){
+    this.opiniones = [
+      {
+        id: 1,
+        rutaImagen: '/assets/img/imgusuario1.svg',
+        nombreAutor: 'Juan',
+        opinion: 'excelente servicio'
+
+
+      },
+      {
+        id: 3,
+        rutaImagen: '/assets/img/imgusuario1.svg',
+        nombreAutor: 'Juan',
+        opinion: 'excelente servicio'
+
+
+      },
+      {
+        id: 2,
+        rutaImagen: '/assets/img/imgusuario1.svg',
+        nombreAutor: 'Juan',
+        opinion: 'excelente servicio'
+
+
+      }
+    ]
+    
+  }
 
 }

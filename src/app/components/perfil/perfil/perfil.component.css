@@ -1,0 +1,43 @@
+.contenedor-cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    /* Margen alrededor del contenedor */
+}
+
+.app-card-perfil,
+.app-card-perfil-redes,
+.app-card-perfil-agregar {
+    flex: 1;
+    max-width: 100%;
+
+    @media screen and (max-width: 600px) {
+        max-width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Estilos para el contenedor */
+.contenedor {
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos al lado izquierdo */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+
+    margin: 40px 0 0 20px; /* Ajusta el margen superior según tus necesidades */
+}
+
+/* Ajustes específicos para cada tarjeta */
+.app-card-perfil {
+    margin-right: 20px; /* Márgenes entre las tarjetas */
+}
+
+.app-card-perfil-redes {
+    margin-right: 20px; /* Márgenes entre las tarjetas */
+}
+
+/* Elimina el margen derecho de la tarjeta de agregar para colocarla al lado */
+.app-card-perfil-agregar {
+    margin-right: 0;
+}
+
+

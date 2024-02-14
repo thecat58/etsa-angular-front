@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { TallerComponent } from './pages/taller/taller.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -12,6 +11,7 @@ const routes: Routes = [
   {path: 'taller',component:TallerComponent}
 
   
+>>>>>>> 47dc0428bde53dbb6757663dc5e60274cfe5ed2b
 ];
 
 @NgModule({
