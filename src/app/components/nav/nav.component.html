@@ -9,9 +9,11 @@
   <li class="menu-item">
     <a class="menu-link" routerLink="active">Ofertas</a>
   </li>
+
   <li class="menu-item">
-    <input type="search" name="Buscar" id="search" >
+    <input type="search" name="Buscar" id="search"  [formControl]="control">
   </li>
+
   <li *ngIf="!userLoginOn" class="item-registrate">
     <a class="link-registrate" routerLink="">Registrate</a>
   </li>
@@ -21,5 +23,7 @@
   <li  class="item-iniciar">
     <a class="link-login" routerLink="login" >Iniciar sesion</a>
   </li>
+<button (click)="loco()" >sssss</button>
+  
 </ul> 
 

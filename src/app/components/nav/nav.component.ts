@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
+import { query } from '@angular/animations';
+import { Component, OnInit, Query } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime, pipe } from 'rxjs';
+import { TallerService } from 'src/app/shared/services/taller.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,13 +10,37 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  userLoginOn:boolean=true;
-  constructor(    private _log: LoginService,){
+  userLoginOn: boolean = true;
+  control = new FormControl();
+  constructor(
+    private serviciotaller: TallerService
+  ) {
 
   }
   ngOnInit(): void {
-      
+    this.observarchangesearch()
   }
+
+ 
+  loco(): void {
+    this.serviciotaller.traerTaller().subscribe((data: any) => {
+      console.log('Datos de talleres:', data);
+    });
+  }
+
+  observarchangesearch() {
+
+    this.control.valueChanges
+    .pipe(
+      debounceTime(1000)
+    )
+      .subscribe(query => {
+        console.log(query);
+      });
+  }
+
+
+
 
 
 
