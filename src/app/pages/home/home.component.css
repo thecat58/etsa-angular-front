@@ -31,7 +31,7 @@ body, html {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #9DB2C3; /* Color azul claro */
+  background-color: #BDC3C7; /* Color azul claro */
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -129,7 +129,7 @@ body, html {
 }
 
 .opinion-card {
-  background-color: #fff;
+  background-color: #BDC3C7;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -149,7 +149,7 @@ body, html {
 
 .user-opinion {
   margin: 10px 0;
-  color: #666;
+  color: #BDC3C7;
 }
 /* ... (resto de tu código) */
 
@@ -168,7 +168,7 @@ body, html {
 .opinions-container {
   display: flex;
   justify-content: space-around;
-  background-color: #9DB2C3; /* Fondo de color azul claro */
+  background-color: #BDC3C7; /* Fondo de color azul claro */
   padding: 20px;
   border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
 }
@@ -203,7 +203,7 @@ body, html {
 }
 
 .title-container {
-  background-color: #9DB2C3; /* Color de fondo del contenedor del título */
+  background-color: #BDC3C7; /* Color de fondo del contenedor del título */
   padding: 15px; /* Espaciado interno del contenedor del título */
   border-radius: 8px; /* Bordes redondeados para el contenedor del título */
   margin-bottom: 20px; /* Espaciado inferior para separar del contenido */

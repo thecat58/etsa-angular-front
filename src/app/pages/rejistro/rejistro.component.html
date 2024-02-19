@@ -1,0 +1,64 @@
+<div class="block-container">
+    <div class="container-login">
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
+            <picture class="logo-sena"></picture>
+            <div>
+                <h1>Registro</h1>
+            </div>
+            <div class="inputs">
+
+                <div class="input-cont">
+                    <div>
+                        <img [src]="fotoURL" alt="Foto de perfil" class="foto-perfil" *ngIf="fotoURL">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <button type="button" class="custom-file-upload" (click)="seleccionarFoto()">Seleccionar foto</button>
+                        <input type="file" id="foto" name="foto" accept="image/*" style="display: none;" (change)="onFotoSeleccionada($event)">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-cont">
+                        <input type="text" placeholder="Nombre" autocomplete="name" formControlName="usuario">
+                    </div>
+                    <div class="input-cont">
+                        <input type="text" placeholder="Apellido" autocomplete="family-name" formControlName="apellido">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Departamento -->
+                        <input type="text" placeholder="Departamento" autocomplete="address-level1"
+                            formControlName="municipio">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Correo -->
+                        <input type="email" placeholder="Correo electrónico" autocomplete="email"
+                            formControlName="correo">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Contraseña -->
+                        <input type="password" placeholder="Contraseña" autocomplete="new-password"
+                            formControlName="password">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Identificación -->
+                        <input type="number" placeholder="Identificación" autocomplete="cc-number"
+                            formControlName="identificacion">
+                    </div>
+                </div>
+            </div>
+            <div class="alert"></div>
+            <div class="login-button">
+                <button type="submit">Iniciar</button>
+            </div>
+        </form>
+    </div>
+</div>

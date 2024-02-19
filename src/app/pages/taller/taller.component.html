@@ -1,19 +1,17 @@
 <div class="container">
-    <div *ngFor="let taller of talleres" class="card" > 
-        <button (click)="seleccionarTaller(taller.id!)">ver mas</button>
-      <img [src]="taller.foto" alt="Foto del taller" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{ taller.nombre }}</h5>
-        <p class="card-text">Ubicación: {{ taller.ubicacion }}</p>
+  <div *ngFor="let taller of talleresMostrados" class="card">
+    <div class="card">
+      <img [src]="taller.foto" alt="Image 2" class="card-img">
+      <div class="card-content">
+        <h3 class="card-title">{{ taller.nombre }}</h3>
+        <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
+        <p class="location-text">Ubicación: {{ taller.ubicacion }}</p>
       </div>
     </div>
+    <button class="ver-mas" (click)="seleccionarTaller(taller.id!)">ver más</button>
   </div>
-  
-  <!-- Mostrar el taller seleccionado -->
-  <div *ngIf="tallerSeleccionado">
-    <h2>Taller seleccionado: {{ tallerSeleccionado.id }}</h2>
-    <p>Nombre: {{ tallerSeleccionado.nombre }}</p>
-    <p>Ubicación: {{ tallerSeleccionado.ubicacion }}</p>
-    <!-- Puedes mostrar más detalles del taller según tu necesidad -->
-  </div>
-  
+</div>
+
+<div class="container" *ngIf="talleresMostrados.length < talleres.length">
+  <button class="ver-mas" (click)="verMas()">Ver más talleres</button>
+</div>
