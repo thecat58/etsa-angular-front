@@ -1,43 +1,44 @@
-.contenedor-cards {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    /* Margen alrededor del contenedor */
+.grit{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px;
 }
 
-.app-card-perfil,
-.app-card-perfil-redes,
-.app-card-perfil-agregar {
-    flex: 1;
-    max-width: 100%;
-
-    @media screen and (max-width: 600px) {
-        max-width: 100%;
-        margin-right: 0;
-    }
+.contenedor-cards, .contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
 }
-
-/* Estilos para el contenedor */
-.contenedor {
-    display: flex;
-    justify-content: flex-start; /* Alinea los elementos al lado izquierdo */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
-
-    margin: 40px 0 0 20px; /* Ajusta el margen superior según tus necesidades */
+.contenedor-agregar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  width: 270px;
+  height: 282px;
 }
-
-/* Ajustes específicos para cada tarjeta */
-.app-card-perfil {
-    margin-right: 20px; /* Márgenes entre las tarjetas */
+.contenedor-agregar button{
+  background-color: #b44816;
+  border-radius: 10px;
+  padding: 7px 20px;
+  border: none;
+  color: #fff;
 }
-
-.app-card-perfil-redes {
-    margin-right: 20px; /* Márgenes entre las tarjetas */
+.contenerdor-servicios{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
-
-/* Elimina el margen derecho de la tarjeta de agregar para colocarla al lado */
-.app-card-perfil-agregar {
-    margin-right: 0;
+h1{
+  font-size: 18px;
+  font-weight: 600;
 }
-
-

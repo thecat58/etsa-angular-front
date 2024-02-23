@@ -1,50 +1,53 @@
-.tarjeta {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
-    margin-bottom: 20px; /* Espaciado entre tarjetas */
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  width: 270px;
+  height: 282px;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.perfil-card-agregar img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
+.btn-actualizar{
+  background-color: #a84a14;
+  border-radius: 10px;
+  border: none;
+  padding:8px 15px;
+  width: 120px;
+  color: #fff;
 }
-
-.btn-actualizar,
-.btn-eliminar {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-eliminar{
+  background-color:transparent;
+  border-radius: 10px;
+  border: solid 1px #101296;
+  padding:8px 15px;
+  width: 120px;
+  color: #101296;
 }
-
-/* Estilos responsive */
-@media only screen and (max-width: 600px) {
-    body {
-        flex-direction: column; /* Apilar elementos en pantallas pequeñas */
-        align-items: center;
-    }
-
-    .tarjeta {
-        max-width: 100%;
-        margin-bottom: 20px; /* Espaciado entre tarjetas en pantallas pequeñas */
-    }
+.perfil-card-agregar img{
+  width: 245px;
+  height: 170px;
+  border-radius: 10px;
 }
-
-
-
-
-
+h5{
+  font-style: 18px;
+  font-weight: 600;
+}
 
 
 
