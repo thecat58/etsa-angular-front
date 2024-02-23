@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RejistroComponent {
   formLogin!: FormGroup;
   fotoURL: string | ArrayBuffer | null = null;
+  file = '';
+
 
   constructor(private formBuilder: FormBuilder) {
     this.buildFormLogin();
@@ -21,7 +23,10 @@ export class RejistroComponent {
       municipio: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       identificacion: ['', Validators.required],
-      apellido: ['', Validators.required]
+      apellido: ['', Validators.required],
+      foto: ['', Validators.required],
+
+      
     });
   }
 
@@ -36,15 +41,15 @@ export class RejistroComponent {
     }
   }
   onFotoSeleccionada(event: any) {
-    const file = event.target.files[0];
-    if (file) {
+    let archivo;
+    if (archivo = this.file = event.target.files[0] ) {
       // Leer la imagen como un objeto de tipo Blob
       const reader = new FileReader();
       reader.onload = () => {
         // Asignar la imagen a la variable fotoURL para mostrarla en el formulario
         this.fotoURL = reader.result;
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(archivo);
     }
   }
   seleccionarFoto() {
