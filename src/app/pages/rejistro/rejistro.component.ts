@@ -47,7 +47,7 @@ export class RejistroComponent {
       reader.readAsDataURL(file);
     }
   }
-seleccionarFoto() {
-  document.getElementById('foto')?.click();
-}
+  seleccionarFoto() {
+    document.getElementById('foto')?.click();
+  }
 }
