@@ -1,49 +1,48 @@
-/* Estilos para la tarjeta de perfil */
-.contenedor {
-  bottom: 50px;
-  padding-left: 50px;
-  width: 370px;
-  height: 452px;
-  flex-shrink: 0
-}
-
-.foto {
-  margin-bottom: 10px; /* Espacio entre la foto y los párrafos */
-}
-
-/* Estilos para la imagen de perfil */
-.foto img {
-  width: 150px; /* Ajusta el tamaño de la imagen según tus necesidades */
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover; /* Mantiene la proporción y corta la imagen si es necesario */
-}
-
-.perfil-card {
+.contenedor{
   display: flex;
-  padding: 20px;
-
-  border-radius: 20px;
-  border: 1px solid rgba(187, 179, 179, 0.80);
-  background: #FFF;
-  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
+}
+.perfil-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
 }
-
-/* Estilos para la imagen de perfil */
-.perfil-card img {
-  width: 100px;
-  /* Ajusta el tamaño de la imagen según tus necesidades */
-  height: 100px;
+.foto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  margin-bottom: 10px;
 }
-
-/* Estilos para los párrafos de información */
-.perfil-card p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #333;
+.foto img{
+  display: flex;
+  width:120px ;
+  height:120px;
+}
+ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+ul li{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+.nombre{
+  font-size: 30px;
+  font-weight: 600;
+}
+h1{
+  font-size: 15px;
+  font-weight: 600;
 }
