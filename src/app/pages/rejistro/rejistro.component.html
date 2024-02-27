@@ -28,30 +28,30 @@
                 </div>
                 <div class="input-cont">
                     <div>
-                        <!-- Campo Departamento -->
-                        <input type="text" placeholder="Departamento" autocomplete="address-level1"
-                            formControlName="municipio">
+                        <!-- Campo Departamento (Municipio) -->
+                        <select formControlName="municipio">
+                            <!-- <option *ngFor="let municipio of municipios" [value]="municipio.id">{{ municipio.nombre }}</option> -->
+                        </select>
                     </div>
                 </div>
                 <div class="input-cont">
                     <div>
                         <!-- Campo Correo -->
-                        <input type="email" placeholder="Correo electrónico" autocomplete="email"
-                            formControlName="correo">
+                        <input type="email" placeholder="Correo electrónico" autocomplete="email" formControlName="correo">
                     </div>
                 </div>
                 <div class="input-cont">
                     <div>
                         <!-- Campo Contraseña -->
-                        <input type="password" placeholder="Contraseña" autocomplete="new-password"
-                            formControlName="password">
+                        <input type="password" placeholder="Contraseña" autocomplete="new-password" formControlName="password">
                     </div>
                 </div>
                 <div class="input-cont">
                     <div>
                         <!-- Campo Identificación -->
-                        <input type="number" placeholder="Identificación" autocomplete="cc-number"
-                            formControlName="identificacion">
+                        <select formControlName="identificacion">
+                            <option *ngFor="let identificacion of identificaciones" [value]="identificacion.nombre">{{ identificacion.nombre }}</option>
+                        </select>
                     </div>
                 </div>
             </div>
