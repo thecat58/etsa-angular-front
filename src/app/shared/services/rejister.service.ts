@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CoreService } from './core.service';
 import { Observable } from 'rxjs';
 import { identificacionModel } from '../models/Identifica.model';
+import { municipionModel } from '../models/municipio.model';
 
 
 
@@ -15,10 +16,15 @@ export class RejisterService {
   ) { }
 
   rejsitroUser(data:any): Observable<any>{
-    return this._cpreservice.post<any>('usuario/')
+    console.log(data);
+    return this._cpreservice.post<any>('usuario/',data)
   }
   traerIdentificacion(): Observable<identificacionModel[]>{
     return this._cpreservice.get<identificacionModel[]>('documento/')
+  }
+
+  traermunicipio(): Observable<municipionModel[]>{
+    return this._cpreservice.get<municipionModel[]>('municipio/')
   }
   
 }
