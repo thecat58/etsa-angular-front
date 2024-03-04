@@ -17,6 +17,8 @@ import { PerfilComponent } from './components/perfil/perfil/perfil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './components/notification/notification.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { TallerComponent } from './pages/taller/taller.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Error400Component } from './components/error400/error400.component';
@@ -30,6 +32,7 @@ import { RejistroComponent } from './pages/rejistro/rejistro.component';
     HomeComponent,
     FooterComponent,
     LoginComponent,
+    CalendarComponent,
     HomeComponent,
     CardPerfilAgregarComponent,
     CardPersonaComponent,
@@ -48,7 +51,8 @@ import { RejistroComponent } from './pages/rejistro/rejistro.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
