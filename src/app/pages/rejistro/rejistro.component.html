@@ -1,6 +1,6 @@
 <div class="block-container">
     <div class="container-login">
-        <form [formGroup]="formLogin" (ngSubmit)="login()">
+        <form [formGroup]="formLogin" (ngSubmit)="login($event)">
             <picture class="logo-sena"></picture>
             <div>
                 <h1>Registro</h1>

@@ -14,12 +14,15 @@ export class RejistroComponent {
   fotoURL: string | ArrayBuffer | null = null;
   file = '';
   identificaciones: identificacionModel[] = [];
-  municipios: municipionModel[]=[];
+  municipios: municipionModel[] = [];
 
-  constructor(private formBuilder: FormBuilder, private _servicio: RejisterService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private _servicio: RejisterService
+  ) {
     this.buildFormLogin();
   }
- 
+
   ngOnInit(): void {
     this.obtenerIdentificaciones();
     this.obtenerMunicipio();
@@ -33,26 +36,49 @@ export class RejistroComponent {
       n_identificacion: ['', Validators.required], // Inicializar en null
       primer_apellido: ['', Validators.required],
       foto: ['', Validators.required],
-      tipoidentificacion:['', Validators.required],
+      tipoidentificacion: ['', Validators.required],
       municipio: ['', Validators.required],
-    })}
-    
-  login() {
+    })
+  }
+
+  // submitForm() {
+  //   if (this.formLogin.valid) {
+  //     // Crear una instancia del modelo Usuario y llenarla con los datos del formulario
+  //     this.usuario = new Usuario();
+  //     this.usuario.primer_nombre = this.formLogin.value.primer_nombre;
+  //     this.usuario.password = this.formLogin.value.password;
+  //     this.usuario.email = this.formLogin.value.email;
+  //     this.usuario.n_identificacion = this.formLogin.value.n_identificacion;
+  //     this.usuario.primer_apellido = this.formLogin.value.primer_apellido;
+  //     this.usuario.foto = this.formLogin.value.foto;
+  //     this.usuario.tipoidentificacion = this.formLogin.value.tipoidentificacion;
+  //     this.usuario.municipio = this.formLogin.value.municipio;
+
+  //     // Ahora puedes hacer lo que quieras con el objeto 'usuario', como enviarlo a un servicio
+  //     console.log('Usuario creado:', this.usuario);
+  //   } else {
+  //     console.log('Formulario inválido');
+  //   }
+  // }
+
+
+  login(event: any) {
+    const archivo = event.target.documento.files[0];
     if (this.formLogin) {
       console.log('Formulario válido');
       console.log('Datos del formulario:', this.formLogin.value);
-      this._servicio.rejsitroUser(this.formLogin.value).subscribe({
+      this._servicio.rejsitroUser(this.formLogin.value, archivo).subscribe({
         next: (response) => {
           console.log('lo que trajo el backend', response);
         },
         error: (error) => {
           console.error('Error del backend', error);
         },
-        complete:()=>{
+        complete: () => {
           console.log('Bienvenido');
-          
+
         }
-    });
+      });
     } else {
       console.log('Formulario inválido');
       // Aquí puedes mostrar mensajes de error o realizar otras acciones si el formulario no es válido

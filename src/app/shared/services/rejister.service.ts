@@ -15,9 +15,9 @@ export class RejisterService {
     private _cpreservice: CoreService
   ) { }
 
-  rejsitroUser(data:any): Observable<any>{
+  rejsitroUser(data:any, documento:File): Observable<any>{
     console.log(data);
-    return this._cpreservice.post<any>('usuario/',data)
+    return this._cpreservice.post<any>('usuario/',data )
   }
   traerIdentificacion(): Observable<identificacionModel[]>{
     return this._cpreservice.get<identificacionModel[]>('documento/')
