@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './components/notification/notification.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     LoginComponent,
+    CalendarComponent,
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
