@@ -15,9 +15,11 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent, pathMatch: "full"},
   {path: 'taller',component:TallerComponent},
   {path: 'rejistro',component:RejistroComponent},
-  { path: '**', component: Error400Component },
+  
   {path: 'fullcalendario',component: CalendarComponent},
 
+  // este simpre va de ultomo si no da error 
+{ path: '**', component: Error400Component },
   
 
 ];
