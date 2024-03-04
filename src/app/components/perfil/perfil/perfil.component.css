@@ -1,0 +1,44 @@
+.grit{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px;
+}
+
+.contenedor-cards, .contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+.contenedor-agregar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  width: 270px;
+  height: 282px;
+}
+.contenedor-agregar button{
+  background-color: #b44816;
+  border-radius: 10px;
+  padding: 7px 20px;
+  border: none;
+  color: #fff;
+}
+.contenerdor-servicios{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+h1{
+  font-size: 18px;
+  font-weight: 600;
+}

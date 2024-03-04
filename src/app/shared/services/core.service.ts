@@ -87,12 +87,15 @@ export class CoreService {
 
   login(email: string, password: string) {
     const loginData = { email, password };
-    this.httpClient.post<responsei>(`${this.API_URL}login/`, loginData).subscribe(
-      (datos: responsei) => {
+    this.httpClient.post<any>(`${this.API_URL}login/`, loginData).subscribe(
+      (datos: any) => {
         console.log('token1', datos);
-        if (datos) {
+        if (datos && datos.token) {
           console.log('Hola');
-          this._router.navigate(['']);
+          // Guardar token en el localStorage
+          localStorage.setItem('token', datos.token);
+          // Redirigir a la página principal
+          this._router.navigate(['perfil-venta']);
           // Aquí puedes realizar acciones adicionales si hay datos en la respuesta
         } else {
           console.log('Adiós');
@@ -111,7 +114,7 @@ export class CoreService {
         }
       }
     );
-}
+  }
 
 
 

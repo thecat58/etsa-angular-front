@@ -1,5 +1,5 @@
 footer {
-  background: #5E6D8D;
+  background: #cc4b3c;
   display: flex;
   flex-wrap: wrap;  /*este le da responsive ala caja padre  */
   justify-content: center;
@@ -48,11 +48,13 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  
 }
 
 .imagen img {
   width: 104px;
   height: 98px;
+  border-radius: 10px;
 }
 
 .informacion {

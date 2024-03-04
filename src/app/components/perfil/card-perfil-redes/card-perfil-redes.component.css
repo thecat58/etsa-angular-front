@@ -1,0 +1,35 @@
+.perfil-card-redes{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+}
+.perfil-card-redes ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 200px;
+  width:250px;
+}
+ul li{
+  list-style: none;
+}
+h1{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+

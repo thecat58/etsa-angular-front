@@ -1,0 +1,79 @@
+<div class="block-container">
+    <div class="container-login">
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
+            <picture class="logo-sena"></picture>
+            <div>
+                <h1>Registro</h1>
+            </div>
+            <div class="inputs">
+
+                <div class="input-cont">
+                    <div>
+                        <img [src]="fotoURL" alt="Foto de perfil" class="foto-perfil" *ngIf="fotoURL">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <button type="button" class="custom-file-upload" (click)="seleccionarFoto()">Seleccionar
+                            foto</button>
+                        <input type="file" id="foto" name="foto" formControlName="foto" accept="image/*"
+                            style="display: none;" (change)="onFotoSeleccionada($event)">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-cont">
+                        <input type="text" placeholder="Nombre" autocomplete="name" formControlName="primer_nombre">
+                    </div>
+                    <div class="input-cont">
+                        <input type="text" placeholder="Apellido" autocomplete="family-name" formControlName="primer_apellido">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Departamento (Municipio) -->
+                        <select formControlName="municipio" >
+                            <option  *ngFor="let municipio of municipios" [value]="municipio.id">
+                            {{ municipio.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Correo -->
+                        <input type="number" placeholder="identificacion" 
+                            formControlName="n_identificacion">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Identificación -->
+                        <select formControlName="tipoidentificacion" >
+                            <option  *ngFor="let identificacion of identificaciones" [value]="identificacion.id">
+                            {{ identificacion.nombre }}</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Correo -->
+                        <input type="email" placeholder="Correo electrónico" autocomplete="new-email"
+                            formControlName="email">
+                    </div>
+                </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Contraseña -->
+                        <input type="password" placeholder="Contraseña" autocomplete="new-password"
+                            formControlName="password">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="alert"></div>
+            <div class="login-button">
+                <button type="submit">Iniciar</button>
+            </div>
+        </form>
+    </div>
+</div>

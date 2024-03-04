@@ -3,7 +3,7 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./../../../assets/img/imgprincipal.jpg" class="d-block w-100 img-fluid" alt="Imagen 1">
+        <img src="./../../../assets/img/imgpricipal.webp" class="d-block w-100 img-fluid" alt="Imagen 1">
       </div>
       <div class="carousel-item">
         <img src="./../../../assets/img/imgprincipal2.jpg" class="d-block w-100 img-fluid" alt="Imagen 2">
@@ -47,66 +47,20 @@
     </a>
   </div>
 </nav>
-<div class="card-container">
-  <div class="card">
-    <img src="./../../../assets/img/imgtarjeta1.jpeg" alt="Image 1" class="card-img">
-    <div class="card-content">
-      <h3 class="card-title">Registra tu Taller</h3>
-      <p class="card-text">Registra tu Taller</p>
-      <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
-      <p class="location-text">Popayan</p>
-    </div>
-  </div>
 
-  <div class="card">
-    <img src="./../../../assets/img/imgtarjeta1.jpeg" alt="Image 2" class="card-img">
-    <div class="card-content">
-      <h3 class="card-title">Registra tu Taller</h3>
-      <p class="card-text">Registra tu Taller</p>
-      <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
-      <p class="location-text">Popayan</p>
-    </div>
-  </div>
 
-  <div class="card">
-    <img src="./../../../assets/img/imgtarjeta1.jpeg" alt="Image 3" class="card-img">
-    <div class="card-content">
-      <h3 class="card-title">Registra tu Taller</h3>
-      <p class="card-text">Registra tu Taller</p>
-      <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
-      <p class="location-text">Popayan</p>
-    </div>
-  </div>
-</div>
+<app-taller></app-taller>
+
 
 
 <div class="opinions-section">
   <h2 class="section-title">Opiniones</h2>
 
   <div class="opinions-container">
-    <div class="opinion-card">
-      <img src="./../../../assets/img/imgusuario1.svg" alt="User 1" class="user-avatar">
-      <div class="opinion-content">
-        <h4 class="user-name">Juan</h4>
-        <p class="user-opinion">Este taller no me un reesembolso</p>
-      </div>
-    </div>
-
-    <div class="opinion-card">
-      <img src="./../../../assets/img/imgusuario1.svg" alt="User 2" class="user-avatar">
-      <div class="opinion-content">
-        <h4 class="user-name">Pedro</h4>
-        <p class="user-opinion">Este taller tiene garantia de un mes</p>
-      </div>
-    </div>
-
-    <div class="opinion-card">
-      <img src="./../../../assets/img/imgusuario1.svg" alt="User 3" class="user-avatar">
-      <div class="opinion-content">
-        <h4 class="user-name">Mariana</h4>
-        <p class="user-opinion">Buen servicio lo recomiendo</p>
-      </div>
-    </div>
+    <app-card-persona
+    *ngFor="let opinion of opiniones"
+    [opinion]="opinion">
+    </app-card-persona>
   </div>
 </div>
 

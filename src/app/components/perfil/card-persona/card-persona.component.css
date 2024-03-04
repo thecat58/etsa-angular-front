@@ -1,0 +1,23 @@
+.opinion-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Hacer la imagen redonda */
+  }
+  .user-avatar {
+    width: 30px; /* Ajusta el tamaño según tus necesidades */
+    height: 30px; /* Ajusta el tamaño según tus necesidades */
+    object-fit: cover;
+    border-radius: 50%; /* Para hacer la imagen circular */
+  }
+  .opinion-card:hover {
+    transform: scale(1.05);
+  }

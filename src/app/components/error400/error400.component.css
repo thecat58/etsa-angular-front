@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+img{
+    border-radius: 50px;
+}
