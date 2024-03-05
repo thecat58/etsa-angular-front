@@ -1,6 +1,6 @@
 <div class="block-container">
     <div class="container-login">
-        <form [formGroup]="formLogin" (ngSubmit)="login($event)">
+        <form [formGroup]="formLogin" (ngSubmit)="submitForm($event)">
             <picture class="logo-sena"></picture>
             <div>
                 <h1>Registro</h1>
@@ -47,7 +47,7 @@
                 <div class="input-cont">
                     <div>
                         <!-- Campo Identificación -->
-                        <select formControlName="tipoidentificacion" >
+                        <select formControlName="tipodocumento" >
                             <option  *ngFor="let identificacion of identificaciones" [value]="identificacion.id">
                             {{ identificacion.nombre }}</option>
                         </select>

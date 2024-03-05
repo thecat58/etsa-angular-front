@@ -3,6 +3,7 @@ import { CoreService } from './core.service';
 import { Observable } from 'rxjs';
 import { identificacionModel } from '../models/Identifica.model';
 import { municipionModel } from '../models/municipio.model';
+import { registroModel } from '../models/registro.model';
 
 
 
@@ -12,19 +13,34 @@ import { municipionModel } from '../models/municipio.model';
 export class RejisterService {
 
   constructor(
-    private _cpreservice: CoreService
+    private _coreService: CoreService
   ) { }
 
-  rejsitroUser(data:any, documento:File): Observable<any>{
-    console.log(data);
-    return this._cpreservice.post<any>('usuario/',data )
+  rejsitroUser(registro: registroModel) {
+    registro.primer_apellido = registro.primer_apellido.toUpperCase();
+    registro.primer_nombre = registro.primer_nombre.toUpperCase();
+    registro.password = registro.password;
+    registro.email = registro.email;
+    registro.password = registro.password;
+    registro.n_identificacion =registro.n_identificacion;
+
+    const formData = new FormData();
+    formData.append('primer_nombre', registro.primer_nombre);
+    formData.append('primer_apellido', registro.primer_apellido);
+    formData.append('n_identificacion', registro.n_identificacion.toString());
+    formData.append('email', registro.email);
+    formData.append('password', registro.password);
+    formData.append('foto', registro.foto);
+    formData.append('municipio', registro.municipio.toString());
+    formData.append('tipodocumento', registro.tipodocumento.toString())
+    return this._coreService.post<registroModel>('usuario/', formData);
   }
   traerIdentificacion(): Observable<identificacionModel[]>{
-    return this._cpreservice.get<identificacionModel[]>('documento/')
+    return this._coreService.get<identificacionModel[]>('documento/')
   }
 
   traermunicipio(): Observable<municipionModel[]>{
-    return this._cpreservice.get<municipionModel[]>('municipio/')
+    return this._coreService.get<municipionModel[]>('municipio/')
   }
   
 }

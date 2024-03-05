@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { identificacionModel } from 'src/app/shared/models/Identifica.model';
 import { municipionModel } from 'src/app/shared/models/municipio.model';
+import { registroModel } from 'src/app/shared/models/registro.model';
 import { RejisterService } from 'src/app/shared/services/rejister.service';
 
 @Component({
@@ -12,9 +13,12 @@ import { RejisterService } from 'src/app/shared/services/rejister.service';
 export class RejistroComponent {
   formLogin!: FormGroup;
   fotoURL: string | ArrayBuffer | null = null;
-  file = '';
+  file = File;
   identificaciones: identificacionModel[] = [];
   municipios: municipionModel[] = [];
+  registro:registroModel[]=[];
+  
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,38 +40,29 @@ export class RejistroComponent {
       n_identificacion: ['', Validators.required], // Inicializar en null
       primer_apellido: ['', Validators.required],
       foto: ['', Validators.required],
-      tipoidentificacion: ['', Validators.required],
+      tipodocumento: ['', Validators.required],
       municipio: ['', Validators.required],
     })
   }
 
-  // submitForm() {
-  //   if (this.formLogin.valid) {
-  //     // Crear una instancia del modelo Usuario y llenarla con los datos del formulario
-  //     this.usuario = new Usuario();
-  //     this.usuario.primer_nombre = this.formLogin.value.primer_nombre;
-  //     this.usuario.password = this.formLogin.value.password;
-  //     this.usuario.email = this.formLogin.value.email;
-  //     this.usuario.n_identificacion = this.formLogin.value.n_identificacion;
-  //     this.usuario.primer_apellido = this.formLogin.value.primer_apellido;
-  //     this.usuario.foto = this.formLogin.value.foto;
-  //     this.usuario.tipoidentificacion = this.formLogin.value.tipoidentificacion;
-  //     this.usuario.municipio = this.formLogin.value.municipio;
+  submitForm(event: any) {
+    this.file = event.target.foto.files[0];
 
-  //     // Ahora puedes hacer lo que quieras con el objeto 'usuario', como enviarlo a un servicio
-  //     console.log('Usuario creado:', this.usuario);
-  //   } else {
-  //     console.log('Formulario inválido');
-  //   }
-  // }
-
-
-  login(event: any) {
-    const archivo = event.target.documento.files[0];
-    if (this.formLogin) {
-      console.log('Formulario válido');
-      console.log('Datos del formulario:', this.formLogin.value);
-      this._servicio.rejsitroUser(this.formLogin.value, archivo).subscribe({
+    if (this.formLogin.valid && this.file instanceof File) {
+      // Crear una instancia del modelo registro y llenarla con los datos del formulario
+      const nuevoRegistro: registroModel = {
+        primer_nombre: this.formLogin.value.primer_nombre,
+        password: this.formLogin.value.password,
+        email: this.formLogin.value.email,
+        n_identificacion: this.formLogin.value.n_identificacion,
+        primer_apellido: this.formLogin.value.primer_apellido,
+        foto: this.file, // Asignar el archivo directamente al atributo 'foto'
+        tipodocumento: this.formLogin.value.tipodocumento,
+        municipio: this.formLogin.value.municipio,
+      };
+  
+      // Agregar el nuevo registro a la matriz de registros
+      this._servicio.rejsitroUser(nuevoRegistro).subscribe({
         next: (response) => {
           console.log('lo que trajo el backend', response);
         },
@@ -79,11 +74,42 @@ export class RejistroComponent {
 
         }
       });
+  
+      // Ahora puedes hacer lo que quieras con la matriz de registros, como enviarla a un servicio
+      console.log('Registro del modelo:', nuevoRegistro);
+
     } else {
-      console.log('Formulario inválido');
-      // Aquí puedes mostrar mensajes de error o realizar otras acciones si el formulario no es válido
+      if (!this.file) {
+        console.log('No se seleccionó un archivo');
+      } else {
+        console.log('Formulario inválido');
+      }
     }
   }
+  
+
+  // login(event: any) {
+  //   const archivo = event.target.documento.files[0];
+  //   if (this.formLogin) {
+  //     console.log('Formulario válido');
+  //     console.log('Datos del formulario:', this.formLogin.value);
+  //     this._servicio.rejsitroUser(this.formLogin.value, archivo).subscribe({
+  //       next: (response) => {
+  //         console.log('lo que trajo el backend', response);
+  //       },
+  //       error: (error) => {
+  //         console.error('Error del backend', error);
+  //       },
+  //       complete: () => {
+  //         console.log('Bienvenido');
+
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Formulario inválido');
+  //     // Aquí puedes mostrar mensajes de error o realizar otras acciones si el formulario no es válido
+  //   }
+  // }
 
   obtenerIdentificaciones() {
     this._servicio.traerIdentificacion().subscribe(
@@ -108,17 +134,21 @@ export class RejistroComponent {
   }
 
   onFotoSeleccionada(event: any) {
-    const archivo = this.file = event.target.files[0];
+    const archivo = event.target.files[0];
     if (archivo) {
+      // Asignar el archivo seleccionado a this.file
+      this.file = archivo;
+  
       // Leer la imagen como un objeto de tipo Blob
       const reader = new FileReader();
       reader.onload = () => {
         // Asignar la imagen a la variable fotoURL para mostrarla en el formulario
-        this.fotoURL = reader.result;
+        this.fotoURL = reader.result as string;
       };
       reader.readAsDataURL(archivo);
     }
   }
+  
 
   seleccionarFoto() {
     document.getElementById('foto')?.click();
