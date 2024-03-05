@@ -10,7 +10,7 @@ import { registroModel } from '../models/registro.model';
 @Injectable({
   providedIn: 'root'
 })
-export class RejisterService {
+export class registerService {
 
   constructor(
     private _coreService: CoreService

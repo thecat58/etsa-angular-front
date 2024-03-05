@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { identificacionModel } from 'src/app/shared/models/Identifica.model';
 import { municipionModel } from 'src/app/shared/models/municipio.model';
 import { registroModel } from 'src/app/shared/models/registro.model';
-import { RejisterService } from 'src/app/shared/services/rejister.service';
+import { registerService } from 'src/app/shared/services/rejister.service';
 
 @Component({
   selector: 'app-rejistro',
@@ -22,7 +22,7 @@ export class RejistroComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _servicio: RejisterService
+    private _servicio: registerService
   ) {
     this.buildFormLogin();
   }
