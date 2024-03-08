@@ -21,6 +21,15 @@ import { TallerComponent } from './pages/taller/taller.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Error400Component } from './components/error400/error400.component';
 import { RejistroComponent } from './pages/rejistro/rejistro.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { CardUsuarioAgendaComponent } from './components/perfil-usuario/card-usuario-agenda/card-usuario-agenda.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalUploadComponent } from './modal-upload/modal-upload.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +48,14 @@ import { RejistroComponent } from './pages/rejistro/rejistro.component';
     PerfilComponent,
     TallerComponent,
     Error400Component,
-    RejistroComponent
+    RejistroComponent,
+    PerfilUsuarioComponent,
+    CardUsuarioAgendaComponent,
+    ModalUploadComponent,
+
+    
+    
+    
 
 
   ],
@@ -48,7 +64,10 @@ import { RejistroComponent } from './pages/rejistro/rejistro.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

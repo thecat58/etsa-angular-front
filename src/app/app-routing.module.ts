@@ -6,6 +6,7 @@ import { TallerComponent } from './pages/taller/taller.component';
 import { Error400Component } from './components/error400/error400.component';
 import { PerfilComponent } from './components/perfil/perfil/perfil.component';
 import { RejistroComponent } from './pages/rejistro/rejistro.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent, pathMatch: "full"},
   {path: 'taller',component:TallerComponent},
   {path: 'rejistro',component:RejistroComponent},
+  {path: 'perfil-usuario',component:PerfilUsuarioComponent},
+
   { path: '**', component: Error400Component }
   
 

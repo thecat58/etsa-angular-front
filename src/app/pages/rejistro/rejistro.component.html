@@ -1,10 +1,14 @@
 <div class="block-container">
     <div class="container-login">
         <form [formGroup]="formLogin" (ngSubmit)="login()">
-            <picture class="logo-sena"></picture>
-            <div>
-                <h1>Registro</h1>
+            <div class="logo-social">
+                <img src="assets/img/logo.png" alt="Logo" class="logo-sena">
+                <div class="social-icons">
+                    <img src="assets/img/facebook.png" alt="Facebook" class="social-icon">
+                    <img src="assets/img/google.png" alt="Google" class="social-icon">
+                </div>
             </div>
+
             <div class="inputs">
 
                 <div class="input-cont">
@@ -24,6 +28,15 @@
                     </div>
                     <div class="input-cont">
                         <input type="text" placeholder="Apellido" autocomplete="family-name" formControlName="apellido">
+                    </div>
+                </div>
+                    <div class="input-cont">
+                        <input type="date" placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento">
+                    </div>
+                <div class="input-cont">
+                    <div>
+                        <!-- Campo Ciudad -->
+                        <input type="text" placeholder="Ciudad" autocomplete="address-level2" formControlName="ciudad">
                     </div>
                 </div>
                 <div class="input-cont">
@@ -47,17 +60,15 @@
                             formControlName="password">
                     </div>
                 </div>
-                <div class="input-cont">
-                    <div>
-                        <!-- Campo Identificación -->
-                        <input type="number" placeholder="Identificación" autocomplete="cc-number"
-                            formControlName="identificacion">
-                    </div>
+                <div class="input-cont-checkbox">
+                    <!-- Cuadro de selección para términos y condiciones -->
+                    <input type="checkbox" id="termsCheckbox" formControlName="termsCheckbox" class="checkbox-input">
+                    <label for="termsCheckbox" class="checkbox-label">Acepto los términos y condiciones</label>
                 </div>
             </div>
             <div class="alert"></div>
             <div class="login-button">
-                <button type="submit">Iniciar</button>
+                <button type="submit">Crear Cuenta</button>
             </div>
         </form>
     </div>

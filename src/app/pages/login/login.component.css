@@ -1,123 +1,197 @@
-.container-login{
+.container-login {
     position: relative;
     padding: 10px;
     border-radius: 15px;
-    background-color: #192239;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     user-select: none;
+    height: auto;
+    max-width: 30vw; /* Ajusta el ancho máximo según tus preferencias */
+    width: 100%;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    margin-top: 50px; /* Ajusta el espacio superior según tus preferencias */
+    margin-bottom: 50px; /* Ajusta el espacio inferior según tus preferencias */
+
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px; /* Ajusta el espacio entre los elementos del formulario */
     text-align: center;
-    width: 40vmax;
-    max-width: 400px;
     padding: 20px;
+}
+
+.logo-custom {
+    display: block;
+    margin: 0 auto; /* Centra el logo */
+    width: 50%; /* Ajusta el tamaño según tus preferencias */
+    max-width: 200px; /* Establece un ancho máximo para el logo */
+    height: auto;
+    border-radius: 30%; /* Borde redondeado */
+
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
     
 }
-.logo-sena{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-.logo-sena svg{
-    width: 80px;
-}
-.input-cont{
+
+.input-cont {
     position: relative;
+    display: flex;
+    align-items: center;
+    
 }
-input{
-    background-color: #131A2E !important;
+
+input {
     height: 40px;
-    width: 100%;
     border-radius: 10px;
     border: none;
-    color: #ffff;
     outline: none;
-    text-align: center;
     transition: 0.5s;
-}
-input:hover{
-    border: #3869B2 solid 1px;
-    transition: 0.5s;
-}
-.inputs{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-input::placeholder {
-    color: #6b6b6b; 
+    background-color: #9DB2C3;
+    padding-left: 40px;
+    width: 150%;
+    box-sizing: border-box;
 }
 
-.login-button{
+.login-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.login-button div:nth-child(1){
-    display: flex;
-    width: 100%;
-    
-    
+
+.login-button button {
+    width: 60%; /* Ajusta el ancho del botón según tus preferencias */
+    padding: 10px;
 }
-.password{
-    display: flex;
-    justify-content: center;
-}
-.login-button button{
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    background-color: #006b00;
-    border-radius: 20px;
-    color: #fff;
-    border: none;
-    padding: 8px;
-    transition: 0.3s ;
-    cursor: pointer;
-}
-.login-button button:hover {
-    box-shadow: 0px 0px 10px #0000; 
-    transform: scale(1.1); 
-}
-.inputs picture{
+
+.inputs picture {
     position: absolute;
     left: 10px;
     top: 0;
     bottom: 0;
     display: flex;
     width: 20px;
-    fill: #fff;
-}
-.ng-valid:not(from).ng-touched{
-    border-left: 5px solid green;
-}
-.ng-valid:not(from).ng-touched{
-    border-left: 5px solid red;
+    margin-right: 10px;
+    
+    
+    
 }
 
-alert{
-background-color: lightcoral;
-width: 100px;
-}
 
-.block-container{
+.remember-me {
     display: flex;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    width: 16px; /* Ajusta el ancho del cuadro de selección según tus preferencias */
+    height: 16px; /* Ajusta la altura del cuadro de selección según tus preferencias */
     margin: 0;
 }
 
-.forgot-password{
-    text-decoration: none;
-    color: white;
-    background: none;
-    border: none;
+.remember-me label {
+    font-size: 14px;
+    color: #333; /* Color del texto */
+    margin-left: 5px; /* Ajusta el espacio entre el cuadro de selección y el texto según tus preferencias */
+}
+
+.continua-con-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px; /* Ajusta el espacio entre el botón de inicio de sesión y "Continua con" */
+}
+
+.line-divider {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 5px 0;
+}
+
+.continua-con {
+    font-size: 14px;
+    margin: 10px 0; /* Ajusta el espacio entre "Continua con" y los iconos sociales */
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
     cursor: pointer;
 }
+/* Estilos para los botones de Iniciar Sesión y Olvidó su Contraseña */
+.login-button button,
+.forgot-password {
+    background-color: #9DB2C3;
+    color: red;
+    border-radius: 10px; /* Ajusta el radio del borde según tus preferencias */
+    border: none;
+    padding: 10px; /* Ajusta el relleno del botón según tus preferencias */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-button button:hover,
+.forgot-password:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón si lo deseas */
+    color: white; /* Cambia el color del texto al pasar el ratón si lo deseas */
+    box-shadow: 0px 0px 10px #0000;
+    transform: scale(1.1);
+}
+.continua-con-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.line-divider {
+    flex-grow: 1;
+    height: 1px;
+    background-color: black;
+    margin: 0 10px;
+}
+
+.continua-con {
+    font-size: 14px;
+    position: relative;
+}
+
+.continua-con::before,
+.continua-con::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100%; /* Ajusta el ancho de las líneas según tus preferencias */
+    height: 1px;
+    background-color: black;
+}
+
+.continua-con::before {
+    right: 100%; /* Línea a la izquierda del texto */
+    margin-right: 10px; /* Espaciado entre la línea y el texto */
+    
+}
+
+.continua-con::after {
+    left: 100%; /* Línea a la derecha del texto */
+    margin-left: 10px; /* Espaciado entre la línea y el texto */
+}
+
+
+
+
+

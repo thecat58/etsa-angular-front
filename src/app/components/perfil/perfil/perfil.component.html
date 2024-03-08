@@ -1,3 +1,5 @@
+<!-- perfil.component.html -->
+
 <div class="grit">
   <div class="contenedor-cards">
     <app-card-perfil></app-card-perfil>
@@ -7,11 +9,11 @@
     <app-card-perfil-datos></app-card-perfil-datos>
     <div>
       <h1>Tus talleres</h1>
-      <div class="contenerdor-servicios">
+      <div class="contenedor-servicios">
         <app-card-perfil-agregar></app-card-perfil-agregar>
         <div class="contenedor-agregar">
           <div>
-            <button>Agregar</button>
+            <button (click)="abrirModal()">Agregar</button>
           </div>
         </div>
       </div>
