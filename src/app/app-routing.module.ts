@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
 import { TallerComponent } from './pages/taller/taller.component';
 import { Error400Component } from './components/error400/error400.component';
 import { PerfilComponent } from './components/perfil/perfil/perfil.component';
@@ -15,9 +16,10 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent, pathMatch: "full"},
   {path: 'taller',component:TallerComponent},
   {path: 'rejistro',component:RejistroComponent},
-  {path: 'perfil-usuario',component:PerfilUsuarioComponent},
-
-  { path: '**', component: Error400Component }
+  {path: 'perfil-usuario',component:PerfilUsuarioComponent},  
+  {path: 'fullcalendario',component: CalendarComponent},
+  // este simpre va de ultomo si no da error 
+{ path: '**', component: Error400Component },
   
 
 ];
