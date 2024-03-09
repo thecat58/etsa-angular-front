@@ -24,21 +24,22 @@ export class CoreService {
     return environment.url;
   }
 
-  public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
+   public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
   public permissions: Subject<string> = new Subject<string>;
   public check: Subject<boolean> = new Subject<boolean>;
   public Data = new Subject;
   Data$ = this.Data.asObservable();
   check$ = this.check.asObservable();
-
+  usuariomodel: PersonaModel[] = []
   constructor(
+
     private httpClient: HttpClient,
     private _router: Router,
     private _tokenService: HttpXsrfTokenExtractor,
     private http: HttpClient
   ) { }
 
-  public pass<T>( tabla: string, dato: string): Observable<T> {
+  public pass<T>(tabla: string, dato: string): Observable<T> {
     if (dato == '') {
       return this.http.get<T>(`${API_URL}${tabla}`);
     }
@@ -94,8 +95,13 @@ export class CoreService {
           console.log('Hola');
           // Guardar token en el localStorage
           localStorage.setItem('token', datos.token);
+
+          if ( datos.user.vededor) {
+            this._router.navigate(['perfil-venta']);
+          }else{
+             this._router.navigate(['perfil-usuario']);
+          } 
           // Redirigir a la página principal
-          this._router.navigate(['perfil-venta']);
           // Aquí puedes realizar acciones adicionales si hay datos en la respuesta
         } else {
           console.log('Adiós');
@@ -132,7 +138,7 @@ export class CoreService {
   public authentication(): Promise<string> {
     return new Promise((resolve) => {
       this.get<AuthModel>('user').subscribe(auth => {
-        resolve(auth.permission); 
+        resolve(auth.permission);
       });
     });
   }
