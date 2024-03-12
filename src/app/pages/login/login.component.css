@@ -1,23 +1,12 @@
-.container-login {
-    position: relative;
-    padding: 10px;
+form{
+    position: relative; 
     border-radius: 15px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    user-select: none;
-    height: auto;
-    max-width: 30vw; /* Ajusta el ancho máximo según tus preferencias */
-    width: 100%;
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    margin-top: 50px; /* Ajusta el espacio superior según tus preferencias */
-    margin-bottom: 50px; /* Ajusta el espacio inferior según tus preferencias */
-
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Ajusta el espacio entre los elementos del formulario */
+    max-width: 417px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
     padding: 20px;
 }
@@ -56,6 +45,13 @@ input {
     width: 150%;
     box-sizing: border-box;
 }
+
+.login-or-register p{
+
+    display: flex;
+    flex-direction: column;
+}
+
 
 .login-button {
     display: flex;

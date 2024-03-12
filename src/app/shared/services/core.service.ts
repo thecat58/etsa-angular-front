@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { responsei } from '../models/respuiesta.model';
 import { __values } from 'tslib';
+import { NgxToastService } from 'ngx-toast-notifier';
 
 const API_URL = environment.url;
 
@@ -36,7 +37,9 @@ export class CoreService {
     private httpClient: HttpClient,
     private _router: Router,
     private _tokenService: HttpXsrfTokenExtractor,
-    private http: HttpClient
+    private http: HttpClient,
+    private ngxToastService: NgxToastService
+
   ) { }
 
   public pass<T>(tabla: string, dato: string): Observable<T> {
@@ -87,12 +90,14 @@ export class CoreService {
   }
 
   login(email: string, password: string) {
+    console.log('kike')
     const loginData = { email, password };
     this.httpClient.post<any>(`${this.API_URL}login/`, loginData).subscribe(
       (datos: any) => {
         console.log('token1', datos);
         if (datos && datos.token) {
-          console.log('Hola');
+          this.ngxToastService.onSuccess('Inicio exitoso','')
+
           // Guardar token en el localStorage
           localStorage.setItem('token', datos.token);
 
@@ -104,7 +109,8 @@ export class CoreService {
           // Redirigir a la página principal
           // Aquí puedes realizar acciones adicionales si hay datos en la respuesta
         } else {
-          console.log('Adiós');
+          
+
           // Aquí puedes realizar acciones adicionales si no hay datos en la respuesta
         }
       },
@@ -112,10 +118,11 @@ export class CoreService {
         console.error(error);
 
         if (error.status === 400) {
-          console.log('Error 400 - Solicitud incorrecta');
+          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
           // Aquí puedes realizar acciones adicionales específicas para el código de estado 400
         } else {
-          console.log('Error general');
+          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
+
           // Otras acciones que desees realizar para otros códigos de estado
         }
       }

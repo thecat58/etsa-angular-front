@@ -15,7 +15,6 @@ import { CardPersonaComponent } from './components/perfil/card-persona/card-pers
 import { PerfilComponent } from './components/perfil/perfil/perfil.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NotificationComponent } from './components/notification/notification.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -25,17 +24,17 @@ import { Error400Component } from './components/error400/error400.component';
 import { RejistroComponent } from './pages/rejistro/rejistro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { CardUsuarioAgendaComponent } from './components/perfil-usuario/card-usuario-agenda/card-usuario-agenda.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalUploadComponent } from './modal-upload/modal-upload.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 
 
 
 @NgModule({
   declarations: [
-    NotificationComponent,
     AppComponent,
     NavComponent,
     HomeComponent,
@@ -56,10 +55,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     CardUsuarioAgendaComponent,
     ModalUploadComponent,
 
-    
-    
-    
-
 
   ],
   imports: [
@@ -71,6 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatDialogModule,
     FullCalendarModule,
+    NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

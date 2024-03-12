@@ -12,5 +12,6 @@ export interface registroModel {
   email:             string;
   tipodocumento:     number;
   municipio:         number;
+  is_active: boolean;
 
 }

@@ -1,12 +1,14 @@
 <div class="block-container" *ngIf="!showListCompanies">
-    <div class="container-login">
+    <div class="-login">
         <form novalidate [formGroup]="formLogin" (keydown)="onEnter($event)">
             <!-- Reemplaza el logotipo SVG con la etiqueta img -->
             <img class="logo-custom" src="assets/img/logo.png" alt="Logo de Inicio de Sesión">
             <!-- Después del logo -->
             <div class="login-or-register">
-                <p>¿No tienes cuenta? <a href="#">Regístrate</a> o <a href="#">Inicia Sesión</a></p>
+                <p>¿No tienes cuenta? <a routerLink="/rejistro">Regístrate</a></p>
             </div>
+
+            <ngx-toast-notifier></ngx-toast-notifier>
 
             <div class="inputs">
                 <div class="input-cont">
@@ -41,18 +43,16 @@
                             formControlName="password">
                     </div>
                 </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Recuérdame</label>
+                </div>
                 <div class="alert">
                     <div *ngIf="passwordField!.hasError('required') && passwordField!.dirty" type="danger">
                         <strong>Error!</strong> Este campo es obligatorio, ingrese la contraseña
                     </div>
                 </div>
-                <div class="password">
-                    <button type="button" class="forgot-password" (click)="showNotification()">¿Olvidó su contraseña?</button>
-                </div>
-                <div class="remember-me">
-                    <input type="checkbox" id="rememberMe" formControlName="rememberMe">
-                    <label for="rememberMe">Recuérdame</label>
-                </div>
+
             </div>
             <div class="login-button">
                 <button type="button" (click)="login()">Continuar</button>
