@@ -1,5 +1,4 @@
 
-
 export interface PersonaModel {
     id?: number;
     identificacion: string;
@@ -12,6 +11,7 @@ export interface PersonaModel {
     email?: string;
     telefonoFijo?: string;
     celular?: string;
+    vededor: boolean;
     rutaFotoUrl?: any;
     perfil?: string;
     idCiudadNac?: number;

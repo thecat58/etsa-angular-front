@@ -51,6 +51,7 @@ export class RejistroComponent {
     if (this.formLogin.valid && this.file instanceof File) {
       // Crear una instancia del modelo registro y llenarla con los datos del formulario
       const nuevoRegistro: registroModel = {
+        is_active:true,
         primer_nombre: this.formLogin.value.primer_nombre,
         password: this.formLogin.value.password,
         email: this.formLogin.value.email,
@@ -87,29 +88,6 @@ export class RejistroComponent {
     }
   }
   
-
-  // login(event: any) {
-  //   const archivo = event.target.documento.files[0];
-  //   if (this.formLogin) {
-  //     console.log('Formulario válido');
-  //     console.log('Datos del formulario:', this.formLogin.value);
-  //     this._servicio.rejsitroUser(this.formLogin.value, archivo).subscribe({
-  //       next: (response) => {
-  //         console.log('lo que trajo el backend', response);
-  //       },
-  //       error: (error) => {
-  //         console.error('Error del backend', error);
-  //       },
-  //       complete: () => {
-  //         console.log('Bienvenido');
-
-  //       }
-  //     });
-  //   } else {
-  //     console.log('Formulario inválido');
-  //     // Aquí puedes mostrar mensajes de error o realizar otras acciones si el formulario no es válido
-  //   }
-  // }
 
   obtenerIdentificaciones() {
     this._servicio.traerIdentificacion().subscribe(

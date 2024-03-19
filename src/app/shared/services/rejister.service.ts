@@ -22,6 +22,7 @@ export class registerService {
     registro.password = registro.password;
     registro.email = registro.email;
     registro.password = registro.password;
+    registro.is_active = registro.is_active;
     registro.n_identificacion =registro.n_identificacion;
 
     const formData = new FormData();
@@ -31,6 +32,7 @@ export class registerService {
     formData.append('email', registro.email);
     formData.append('password', registro.password);
     formData.append('foto', registro.foto);
+    formData.append('is_active', registro.is_active.toString());
     formData.append('municipio', registro.municipio.toString());
     formData.append('tipodocumento', registro.tipodocumento.toString())
     return this._coreService.post<registroModel>('usuario/', formData);

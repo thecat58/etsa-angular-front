@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { responsei } from '../models/respuiesta.model';
 import { __values } from 'tslib';
+import { NgxToastService } from 'ngx-toast-notifier';
 
 const API_URL = environment.url;
 
@@ -24,21 +25,24 @@ export class CoreService {
     return environment.url;
   }
 
-  public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
+   public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
   public permissions: Subject<string> = new Subject<string>;
   public check: Subject<boolean> = new Subject<boolean>;
   public Data = new Subject;
   Data$ = this.Data.asObservable();
   check$ = this.check.asObservable();
-
+  usuariomodel: PersonaModel[] = []
   constructor(
+
     private httpClient: HttpClient,
     private _router: Router,
     private _tokenService: HttpXsrfTokenExtractor,
-    private http: HttpClient
+    private http: HttpClient,
+    private ngxToastService: NgxToastService
+
   ) { }
 
-  public pass<T>( tabla: string, dato: string): Observable<T> {
+  public pass<T>(tabla: string, dato: string): Observable<T> {
     if (dato == '') {
       return this.http.get<T>(`${API_URL}${tabla}`);
     }
@@ -86,19 +90,27 @@ export class CoreService {
   }
 
   login(email: string, password: string) {
+    console.log('kike')
     const loginData = { email, password };
     this.httpClient.post<any>(`${this.API_URL}login/`, loginData).subscribe(
       (datos: any) => {
         console.log('token1', datos);
         if (datos && datos.token) {
-          console.log('Hola');
+          this.ngxToastService.onSuccess('Inicio exitoso','')
+
           // Guardar token en el localStorage
           localStorage.setItem('token', datos.token);
+
+          if ( datos.user.vededor) {
+            this._router.navigate(['perfil-venta']);
+          }else{
+             this._router.navigate(['perfil-usuario']);
+          } 
           // Redirigir a la página principal
-          this._router.navigate(['perfil-venta']);
           // Aquí puedes realizar acciones adicionales si hay datos en la respuesta
         } else {
-          console.log('Adiós');
+          
+
           // Aquí puedes realizar acciones adicionales si no hay datos en la respuesta
         }
       },
@@ -106,10 +118,11 @@ export class CoreService {
         console.error(error);
 
         if (error.status === 400) {
-          console.log('Error 400 - Solicitud incorrecta');
+          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
           // Aquí puedes realizar acciones adicionales específicas para el código de estado 400
         } else {
-          console.log('Error general');
+          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
+
           // Otras acciones que desees realizar para otros códigos de estado
         }
       }
@@ -132,7 +145,7 @@ export class CoreService {
   public authentication(): Promise<string> {
     return new Promise((resolve) => {
       this.get<AuthModel>('user').subscribe(auth => {
-        resolve(auth.permission); 
+        resolve(auth.permission);
       });
     });
   }

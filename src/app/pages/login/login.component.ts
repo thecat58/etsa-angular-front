@@ -3,8 +3,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { Router } from '@angular/router';
 import { ActivationCompanyUserModel } from 'src/app/shared/models/activation-company-user.model';
 import { CoreService } from 'src/app/shared/services/core.service';
-import { NotificationService } from 'src/app/shared/services/notification-service';
-import { NotificationOptions } from 'src/app/shared/models/notification-options.model';
+
 
 
 const KEY_CODE_ENTER = 13;
@@ -22,21 +21,16 @@ export class LoginComponent implements OnInit {
 
 
   activationCompanyUsers: ActivationCompanyUserModel[] = [];
-  options: NotificationOptions = { message: "Usuario o contraseña inválidos" };
-  options1: NotificationOptions = { message: "Inicio de sesión correcto",type: "success"};
   constructor(
     private formBuilder: UntypedFormBuilder,
     private _coreService: CoreService,
     private router: Router,
-    private notificationService: NotificationService
   ) {
     this._coreService.logout();
     this.buildFormLogin();
   }
 
-  showNotification():void{
-    this.notificationService.showNotification({message:"Contacte con un administrador.", type : "warning",position:["right", "top"]})
-  }
+
 
   ngOnInit(): void {
 
