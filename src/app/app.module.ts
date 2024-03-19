@@ -28,6 +28,8 @@ import { CardUsuarioAgendaComponent } from './components/perfil-usuario/card-usu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalUploadComponent } from './modal-upload/modal-upload.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DetalleTallerComponent } from './pages/detalle-taller/detalle-taller.component';
+import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-taller.component';
 
 
 
@@ -55,6 +57,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PerfilUsuarioComponent,
     CardUsuarioAgendaComponent,
     ModalUploadComponent,
+    DetalleTallerComponent,
+    UbicacionTallerComponent,
 
     
     

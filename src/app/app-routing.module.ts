@@ -8,6 +8,8 @@ import { Error400Component } from './components/error400/error400.component';
 import { PerfilComponent } from './components/perfil/perfil/perfil.component';
 import { RejistroComponent } from './pages/rejistro/rejistro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { DetalleTallerComponent } from './pages/detalle-taller/detalle-taller.component';
+import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-taller.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'rejistro',component:RejistroComponent},
   {path: 'perfil-usuario',component:PerfilUsuarioComponent},  
   {path: 'fullcalendario',component: CalendarComponent},
+  {path: 'detalle-taller',component: DetalleTallerComponent},
+  {path: 'ubicacion-taller',component: UbicacionTallerComponent},
   // este simpre va de ultomo si no da error 
 { path: '**', component: Error400Component },
   

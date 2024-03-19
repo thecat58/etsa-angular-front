@@ -1,0 +1,171 @@
+.detalle-taller {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imagen-container {
+  flex: 1 0 40%; /* La imagen ocupa el 40% del ancho en todas las pantallas */
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.imagen {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.container-lateral {
+  flex: 0 0 40%;
+  background-color: rgb(79, 76, 76);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 600px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.opinion {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 30%;
+  border-radius: 20px;
+}
+.opinion-text {
+  width: 100%;
+  height: 90px; /* Ajusta la altura según lo desees */
+  padding: 5px;
+  border-radius: 5px;
+  resize: vertical; /* Permite redimensionar verticalmente */
+  margin-top: 10px; /* Espacio entre la imagen y el área de texto */
+}
+
+.agregar-comentario {
+  background-color: rgb(250, 40, 40); /* Color de fondo */
+  color: white; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar el mouse */
+}
+
+.agregar-comentario:hover {
+  background-color:  rgb(250, 40, 40); /* Cambio de color al pasar el mouse */
+}
+.agregar-comentario {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.user-photo {
+  width: 50px; /* Ancho de la imagen */
+  height: 50px; /* Alto de la imagen */
+  border-radius: 50%; /* Borde redondeado para una apariencia circular */
+  margin-right: 10px; /* Espacio entre la imagen y el contenido de la opinión */
+}
+.descripcion-container {
+  flex: 0 0 50%; /* El contenedor de descripción ocupa todo el ancho disponible */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  height: 250px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 50px;
+  
+
+}
+.categoria-taller .contenido-lateral {
+  background-color: white;
+  padding: 10px; /* Reducir el espacio interno */
+  border-radius: 10px;
+  text-align: left; /* Alinear el texto a la izquierda */
+  overflow-y: auto; /* Agregar desplazamiento vertical si el contenido excede la altura */
+  margin-top: 5px; /* Espacio entre la imagen y la descripción */
+  margin-bottom: 5px; /* Espacio entre la descripción y el siguiente elemento */
+  max-height: 200px; /* Altura máxima para la descripción */
+}
+
+
+.categorias-container {
+  display: flex;
+  margin-left: 20px;
+  position: relative; 
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth; /* Agrega un efecto de desplazamiento suave */
+
+}
+
+.categoria-taller {
+  flex: 1;
+  margin-right: 10px; /* Espacio entre las tarjetas */
+}
+
+.categoria-taller .imagen-container {
+  position: relative;
+  background-color:  rgb(250, 40, 40);
+  border-radius: 10px;
+  
+
+}
+
+.categoria-taller .imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.categoria-taller .contenido-lateral {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 5px; /* Espacio entre la imagen y la descripción */
+  height: 50%;
+  margin-bottom: 20%;
+  text-align: center;
+}
+
+.categoria-taller .categoria {
+  font-size: 18px;
+  
+}
+/* Estilos para las flechas */
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

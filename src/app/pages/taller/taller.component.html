@@ -8,10 +8,11 @@
         <p class="location-text">Ubicación: {{ taller.ubicacion }}</p>
       </div>
     </div>
-    <button class="ver-mas" (click)="seleccionarTaller(taller.id!)">ver más</button>
+    <button class="ver-mas" (click)="seleccionarTaller(taller)">ver más</button>
   </div>
 </div>
 
 <div class="container" *ngIf="talleresMostrados.length < talleres.length">
-  <button class="ver-mas" (click)="verMas()">Ver más talleres</button>
+  <button class="ver-mas" (click)="verMas()">ver más</button>
+
 </div>

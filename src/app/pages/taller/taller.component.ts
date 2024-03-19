@@ -14,30 +14,32 @@ export class TallerComponent {
   tallerSeleccionado: tallerModel = { foto: '', nombre: '', ubicacion: '', usuriotaller: '' }; // Inicializa tallerSeleccionado con un "taller vacío"
   cantidadMostrar: number = 3; // Cantidad de talleres para mostrar inicialmente
 
-  constructor(private tallerService: TallerService) {}
+  constructor(private tallerService: TallerService) { }
 
   ngOnInit(): void {
-    this.tallerService.traerTaller().subscribe(data => {
-      this.talleres = data;
-      this.mostrarTalleres();
-    });
+    this.tallerService.traerTaller().subscribe({
+      next: (data) => {
+        console.log('Datos recibidos del servicio:', data); // Verifica los datos recibidos del servicio
+        this.talleres = data;
+        this.mostrarTalleres();
+      },
+      error: (err: any) => {
+        console.error(err);
+        
+      } 
+    })
   }
 
   mostrarTalleres(): void {
     this.talleresMostrados = this.talleres.slice(0, this.cantidadMostrar);
+    console.log(this.talleresMostrados);
   }
 
   verMas(): void {
     this.cantidadMostrar += 3; // Aumenta la cantidad de talleres para mostrar
     this.mostrarTalleres(); // Vuelve a mostrar los talleres con la nueva cantidad
   }
-
-  seleccionarTaller(id: number): void {
-    const tallerEncontrado = this.talleres.find(taller => taller.id === id);
-    if (tallerEncontrado) {
-      this.tallerSeleccionado = tallerEncontrado;
-    } else {
-      console.error(`No se encontró ningún taller con ID ${id}`);
-    }
+  seleccionarTaller(taller: tallerModel): void {
+    this.tallerSeleccionado = taller;
   }
 }

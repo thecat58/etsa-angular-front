@@ -1,6 +1,30 @@
-<div class="container">
-    <full-calendar [options]="calendarOptions"></full-calendar>
+<div class="main-container">
+  <div class="calendar-container">
+    <h2 class="title-agenda">Agenda</h2> 
+      <img src="assets/img/icono2.png" alt="Icono de Agenda"> <!-- Imagen del icono de agenda -->
+      <full-calendar [options]="calendarOptions" class="mi-calendario"></full-calendar>
+
   </div>
-
-
-  <!-- <app-calendar></app-calendar> -->
+  <div class="appointment-container">
+    <h2 class="title-agregar-cita">Datos Agendar</h2>
+      <form>
+          <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+              <label for="correo">Correo:</label>
+              <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="form-group">
+              <label for="direccion">Dirección:</label>
+              <input type="text" id="direccion" name="direccion">
+          </div>
+          <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono">
+          </div>
+          <button type="submit">Agregar Cita</button>
+      </form>
+  </div>
+</div>
