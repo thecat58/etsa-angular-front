@@ -1,11 +1,9 @@
 .modal-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 2px solid grey; /* Borde principal */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 75px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
 
   }
   

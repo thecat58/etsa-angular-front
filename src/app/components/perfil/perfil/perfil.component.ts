@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalUploadComponent } from '../../../modal-upload/modal-upload.component';
+import { ModalUploadComponent } from '../../modal-upload/modal-upload.component';
+import { NgxToastService } from 'ngx-toast-notifier';
 
 
 @Component({
@@ -10,7 +11,15 @@ import { ModalUploadComponent } from '../../../modal-upload/modal-upload.compone
 })
 export class PerfilComponent {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private ngxToastService: NgxToastService,
+    ) { }
+  
+  ngOnInit(): void {
+  
+    this.ngxToastService.onSuccess('Inicio exitoso', 'Bienvenido')
+    
+  }
 
   abrirModal(): void {
     const dialogRef = this.dialog.open(ModalUploadComponent, {

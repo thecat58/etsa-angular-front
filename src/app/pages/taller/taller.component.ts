@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { tallerModel } from 'src/app/shared/models/taller.module';
+import { tallerModel } from 'src/app/shared/models/taller.model';
 import { TallerService } from 'src/app/shared/services/taller.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class TallerComponent {
 
   talleres: tallerModel[] = [];
   talleresMostrados: tallerModel[] = []; // Tener una lista separada para los talleres mostrados
-  tallerSeleccionado: tallerModel = { foto: '', nombre: '', ubicacion: '', usuriotaller: '' }; // Inicializa tallerSeleccionado con un "taller vacío"
+  tallerSeleccionado: tallerModel = { foto:  new File([],''), nombre: '', ubicacion: '', usuriotaller: '', descripcion:'' }; // Inicializa tallerSeleccionado con un "taller vacío"
   cantidadMostrar: number = 3; // Cantidad de talleres para mostrar inicialmente
 
   constructor(private tallerService: TallerService) { }
@@ -41,5 +41,6 @@ export class TallerComponent {
   }
   seleccionarTaller(taller: tallerModel): void {
     this.tallerSeleccionado = taller;
+    console.log(this.tallerSeleccionado = taller)
   }
 }

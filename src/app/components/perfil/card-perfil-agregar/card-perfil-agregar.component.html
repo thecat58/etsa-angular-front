@@ -1,10 +1,16 @@
+
 <div class="contenedor">
-  <div class="tarjeta">
-    <div class="perfil-card-agregar">
-      <img src="/assets/img/imgtarjeta1.jpeg" alt="Imagen de perfil">
-    </div>
-    <h5>Taller Gonzales</h5>
-    <div class="buttons">
+  <div *ngFor="let taller  of talleres " class="card">
+    <div class="tarjeta">
+      <div class="perfil-card-agregar">
+      <img [src]="taller.foto" alt="Image 2" class="card-img">
+      </div>
+      <div class="card-content">
+        <h5 class="card-title">{{ taller.nombre }}</h5>
+        <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
+        <p class="location-text">Ubicación: {{ taller.ubicacion }}</p>
+      </div>
+    </div><div class="buttons">
       <button class="btn-actualizar">Actualizar</button>
       <button class="btn-eliminar">Eliminar</button>
     </div>
