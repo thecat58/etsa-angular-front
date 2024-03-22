@@ -32,6 +32,7 @@ import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-tal
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
+import { CategoriaTallerComponent } from './pages/categoria-taller/categoria-taller.component';
 
 
 
@@ -58,6 +59,7 @@ import { NgxToastNotifierModule } from 'ngx-toast-notifier';
     ModalUploadComponent,
     DetalleTallerComponent,
     UbicacionTallerComponent,
+    CategoriaTallerComponent,
 
 
   ],

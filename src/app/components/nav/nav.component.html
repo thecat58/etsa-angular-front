@@ -3,12 +3,15 @@
     <li class="menu-item">
         <a class="menu-link" routerLink="active" routerLink="/">ETSA</a>
     </li>
-    <li class="menu-item">
-        <a class="menu-link" routerLink="active">Categorias</a>
+    <li class="menu-item" (click)="toggleCategories()">
+        <a class="menu-link">Categorías</a>
+        <ul class="submenu" *ngIf="showCategories">
+            <li><a [routerLink]="['/categoria', 'electronico']">Taller Electrónico</a></li>
+            <li><a [routerLink]="['/categoria', 'mecanico']">Taller Mecánico</a></li>
+            <li><a [routerLink]="['/categoria', 'lamina-pintura']">Taller Lámina y Pintura</a></li>
+        </ul>
     </li>
-    <li class="menu-item">
-        <a class="menu-link" routerLink="active">Ofertas</a>
-    </li>
+
     <li class="menu-item">
         <input type="search" name="Buscar" id="search">
     </li>

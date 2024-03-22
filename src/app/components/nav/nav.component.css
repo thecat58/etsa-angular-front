@@ -88,5 +88,62 @@ ul img {
 .link-login:hover{
     color: #9DB2C3;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-item {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .menu-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .submenu {
+    background-color:  #9DB2C3; /* Cambia el color del fondo a rojo */
+    color: #fff; /* Cambia el color del texto a blanco */
+    width: auto; /* Usa el ancho automático para ajustarse al contenido */
+    max-width: 200px; /* Establece un ancho máximo para el submenu */
+    padding: 10px; /* Añade un poco de espacio interior para que no esté pegado a los bordes */
+    box-sizing: border-box; /* Incluye el padding en el ancho total del elemento */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 10px); /* Posiciona el submenu debajo del elemento padre con un pequeño espacio */
+    left: 0; /* Alinea el submenu con el lado izquierdo del elemento padre */
+    position: absolute; /* Establece la posición absoluta para que el submenu se despliegue correctamente */
+    border-radius: 10px;
+}
+
+.submenu li {
+    padding: 10px;
+    list-style: none; /* Elimina los estilos de viñetas */
+    white-space: nowrap; /* Evita que el texto se desborde y se ajuste automáticamente */
+}
+
+.submenu li a {
+    color: black; /* Cambia el color del texto de los enlaces dentro del submenu a blanco */
+    text-decoration: none; /* Elimina cualquier decoración de enlace */
+    display: block; /* Convierte los enlaces en bloques para que ocupen todo el ancho */
+}
+
+.submenu li a:hover {
+  background-color:  #9DB2C3; /* Cambia el color de fondo al pasar el cursor */
+  color: #E74C3C; /* Cambia el color del texto al pasar el cursor */
+}
+.menu-item:hover {
+  cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el elemento "Categorías" */
+}
+
+
+
+
+  
+
 
 

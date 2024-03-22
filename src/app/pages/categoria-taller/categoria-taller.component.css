@@ -1,0 +1,132 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+/* Estilo para el contenedor del carrusel */
+.container-fluid {
+    width: 100%; /* Reducir el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    display: block;
+    object-position: top;
+  
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para que las tarjetas se envuelvan cuando no haya suficiente espacio */
+    margin-top: 30px;
+  }
+  
+  .col-sm-4 {
+    flex: 0 0 calc(33.33% - 10px); /* Calculamos el ancho de cada tarjeta para que ocupen aproximadamente un tercio del ancho */
+    margin-bottom: 20px; /* Espacio entre las tarjetas */
+  }
+  .custom-container {
+    width: 100%;
+    
+  
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-height: 50vh; /* Establece una altura máxima del 50% de la altura de la pantalla */
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin: 0%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 50%;
+    display: block;
+  }
+  
+  .promotions {
+    position: absolute;
+    top: 20px; /* Ajusta la posición vertical según sea necesario */
+    left: 20px; /* Ajusta la posición horizontal según sea necesario */
+    color: white;
+    z-index: 1; /* Para que las promociones estén por encima de la imagen */
+  }
+  
+  .promotions h2,
+  .promotions p {
+    margin: 0;
+  }
+  .flip-card {
+    perspective: 1000px; /* Profundidad de la perspectiva para el efecto 3D */
+  }
+  
+  .flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s; /* Transición suave para el efecto giratorio */
+    transform-style: preserve-3d; /* Conserva la transformación 3D */
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); /* Gira la tarjeta 180 grados al pasar el cursor */
+  }
+  
+  .flip-card-front, .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Oculta el reverso de la tarjeta durante la rotación */
+  }
+  
+  .flip-card-front {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg); /* Inicialmente muestra la parte trasera */
+    backface-visibility: hidden; /* Oculta el reverso de la tarjeta durante la rotación */
+    border-radius: 10px; /* Borde redondeado */
+    background-color: white; /* Color de fondo */
+    color: #333; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Asegúrate de aplicar el mismo borde redondeado que en la tarjeta */
+  }
+  .flip-card-back h2 {
+    margin-bottom: 10px; /* Espaciado inferior para el título */
+    margin-top: 10px;
+  }
+  
+  .flip-card-back p {
+    margin: 0; /* Eliminar el margen predeterminado del párrafo */
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+
+  

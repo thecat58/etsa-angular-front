@@ -10,6 +10,7 @@ import { TallerService } from 'src/app/shared/services/taller.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  showCategories: boolean = false;
   userLoginOn: boolean = true;
   control = new FormControl();
   constructor(
@@ -20,8 +21,10 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.observarchangesearch()
   }
+  toggleCategories(): void {
+    this.showCategories = !this.showCategories;
+  }
 
- 
   loco(): void {
     this.serviciotaller.traerTaller().subscribe((data: any) => {
       console.log('Datos de talleres:', data);
@@ -38,10 +41,4 @@ export class NavComponent implements OnInit {
         console.log(query);
       });
   }
-
-
-
-
-
-
 }

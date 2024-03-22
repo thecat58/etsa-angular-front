@@ -10,6 +10,7 @@ import { RejistroComponent } from './pages/rejistro/rejistro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { DetalleTallerComponent } from './pages/detalle-taller/detalle-taller.component';
 import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-taller.component';
+import { CategoriaTallerComponent } from './pages/categoria-taller/categoria-taller.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'fullcalendario',component: CalendarComponent},
   {path: 'detalle-taller',component: DetalleTallerComponent},
   {path: 'ubicacion-taller',component: UbicacionTallerComponent},
+  {path: 'categoria-taller',component: CategoriaTallerComponent},
   // este simpre va de ultomo si no da error 
 { path: '**', component: Error400Component },
   
