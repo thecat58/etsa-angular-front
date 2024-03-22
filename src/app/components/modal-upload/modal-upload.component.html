@@ -18,12 +18,18 @@
   
       <div class="form-group">
         <label for="descriptionTextarea" class="label">Descripción</label>
-        <textarea id="descriptionTextarea" formControlName="description" class="textarea"></textarea>
+        <input type="text" id="nameInput" formControlName="description" class="input">
+      </div>
+
+      <div class="form-group">
+        <label for="descriptionTextarea" class="label">Direccion</label>
+        <input type="text" id="nameInput" formControlName="direccion" class="input">
       </div>
   
       <div class="buttons-container">
-        <button mat-button (click)="onNoClick()" class="delete-button">Eliminar</button>
-        <button mat-button [mat-dialog-close]="uploadForm.value" [disabled]="!uploadForm.valid" class="save-button">Guardar</button>
+        
+        <button mat-button (click)="cerrar()" class="delete-button">Eliminar</button>
+        <button mat-button [mat-dialog-close]="uploadForm.value" (click)="onNoClick()" class="save-button">Guardar</button>
       </div>
     </form>
   </div>

@@ -1,8 +1,9 @@
 export interface tallerModel {
   id?: number;
-  foto:string;
+  foto:File;
   nombre: string;
   ubicacion :string;
-  usuriotaller: string
+  usuriotaller: string;
+  descripcion:string;
  
 }

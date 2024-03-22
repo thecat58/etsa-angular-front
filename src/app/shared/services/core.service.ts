@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { responsei } from '../models/respuiesta.model';
 import { __values } from 'tslib';
 import { NgxToastService } from 'ngx-toast-notifier';
+import { TallerService } from './taller.service';
+import { tallerModel } from '../models/taller.model';
 
 const API_URL = environment.url;
 
@@ -25,20 +27,22 @@ export class CoreService {
     return environment.url;
   }
 
-   public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
+  public persona: Subject<PersonaModel> = new Subject<PersonaModel>;
   public permissions: Subject<string> = new Subject<string>;
   public check: Subject<boolean> = new Subject<boolean>;
   public Data = new Subject;
   Data$ = this.Data.asObservable();
   check$ = this.check.asObservable();
-  usuariomodel: PersonaModel[] = []
+  usuariomodel: PersonaModel[] = [];
+  usuarioId: number = 0
   constructor(
-
     private httpClient: HttpClient,
     private _router: Router,
+
     private _tokenService: HttpXsrfTokenExtractor,
     private http: HttpClient,
-    private ngxToastService: NgxToastService
+    private ngxToastService: NgxToastService,
+
 
   ) { }
 
@@ -90,45 +94,45 @@ export class CoreService {
   }
 
   login(email: string, password: string) {
-    console.log('kike')
+    console.log('kike');
     const loginData = { email, password };
     this.httpClient.post<any>(`${this.API_URL}login/`, loginData).subscribe(
       (datos: any) => {
         console.log('token1', datos);
+        this.usuarioId = datos.user.id;
         if (datos && datos.token) {
-          this.ngxToastService.onSuccess('Inicio exitoso','')
-
           // Guardar token en el localStorage
           localStorage.setItem('token', datos.token);
 
-          if ( datos.user.vededor) {
-            this._router.navigate(['perfil-venta']);
-          }else{
-             this._router.navigate(['perfil-usuario']);
-          } 
-          // Redirigir a la página principal
-          // Aquí puedes realizar acciones adicionales si hay datos en la respuesta
-        } else {
-          
+          // Guardar usuarioId en el localStorage
+          localStorage.setItem('usuarioId', datos.user.id);
 
-          // Aquí puedes realizar acciones adicionales si no hay datos en la respuesta
+          if (datos.user.vededor) {
+            this._router.navigate(['perfil-venta']);
+          } else {
+            this._router.navigate(['perfil-usuario']);
+          }
+          // Mostrar mensaje de éxito solo si el estado de respuesta es 200
+          if (datos.status === 200) {
+            this.ngxToastService.onSuccess('Inicio exitoso', '');
+          }
         }
       },
       (error) => {
         console.error(error);
 
         if (error.status === 400) {
-          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
-          // Aquí puedes realizar acciones adicionales específicas para el código de estado 400
+          this.ngxToastService.onDanger('ERROR', 'COMPRUEBE LOS DATOS O REGÍSTRESE');
         } else {
-          this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
-
-          // Otras acciones que desees realizar para otros códigos de estado
+          this.ngxToastService.onDanger('ERROR', 'OCURRIÓ UN ERROR. POR FAVOR, INTÉNTELO DE NUEVO');
         }
       }
     );
   }
 
+  getUsuarioId(): number {
+    return this.usuarioId;
+  }
 
 
   public getUserAuthenticated() {
@@ -151,6 +155,10 @@ export class CoreService {
   }
 
   logout() {
+    // Borrar token y usuarioId del localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuarioId');
+
     this.persona.next(null!);
     this.permissions.next('');
 
@@ -160,6 +168,8 @@ export class CoreService {
       this._router.navigate(['/login']);
     });
   }
+
+  
 
   private getData(data: String | Object): String {
     let dataUrl = '?';

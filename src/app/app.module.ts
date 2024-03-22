@@ -24,7 +24,7 @@ import { Error400Component } from './components/error400/error400.component';
 import { RejistroComponent } from './pages/rejistro/rejistro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { CardUsuarioAgendaComponent } from './components/perfil-usuario/card-usuario-agenda/card-usuario-agenda.component';
-import { ModalUploadComponent } from './modal-upload/modal-upload.component';
+import { ModalUploadComponent } from './components/modal-upload/modal-upload.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalleTallerComponent } from './pages/detalle-taller/detalle-taller.component';
 import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-taller.component';

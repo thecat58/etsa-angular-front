@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxToastService } from 'ngx-toast-notifier';
 import { identificacionModel } from 'src/app/shared/models/Identifica.model';
 import { municipionModel } from 'src/app/shared/models/municipio.model';
 import { registroModel } from 'src/app/shared/models/registro.model';
@@ -16,13 +18,17 @@ export class RejistroComponent {
   file = File;
   identificaciones: identificacionModel[] = [];
   municipios: municipionModel[] = [];
-  registro:registroModel[]=[];
-  
-  
+  registro: registroModel[] = [];
+
+
 
   constructor(
     private formBuilder: FormBuilder,
-    private _servicio: registerService
+    private _servicio: registerService,
+    private _router: Router,
+    private ngxToastService: NgxToastService,
+
+
   ) {
     this.buildFormLogin();
   }
@@ -51,7 +57,7 @@ export class RejistroComponent {
     if (this.formLogin.valid && this.file instanceof File) {
       // Crear una instancia del modelo registro y llenarla con los datos del formulario
       const nuevoRegistro: registroModel = {
-        is_active:true,
+        is_active: true,
         primer_nombre: this.formLogin.value.primer_nombre,
         password: this.formLogin.value.password,
         email: this.formLogin.value.email,
@@ -61,33 +67,36 @@ export class RejistroComponent {
         tipodocumento: this.formLogin.value.tipodocumento,
         municipio: this.formLogin.value.municipio,
       };
-  
+
       // Agregar el nuevo registro a la matriz de registros
       this._servicio.rejsitroUser(nuevoRegistro).subscribe({
         next: (response) => {
           console.log('lo que trajo el backend', response);
         },
         error: (error) => {
-          console.error('Error del backend', error);
+          this.ngxToastService.onDanger('ERROR', 'COMPRUEBE LOS DATOS');
         },
         complete: () => {
           console.log('Bienvenido');
 
+          this.ngxToastService.onSuccess('', 'puedes iniciar');
+
+          this._router.navigate(['login']);
         }
       });
-  
+
       // Ahora puedes hacer lo que quieras con la matriz de registros, como enviarla a un servicio
       console.log('Registro del modelo:', nuevoRegistro);
 
     } else {
       if (!this.file) {
-        console.log('No se seleccionó un archivo');
+        this.ngxToastService.onDanger('ERROR', 'COMPRUEBE LOS DATOS');
       } else {
         console.log('Formulario inválido');
       }
     }
   }
-  
+
 
   obtenerIdentificaciones() {
     this._servicio.traerIdentificacion().subscribe(
@@ -116,7 +125,7 @@ export class RejistroComponent {
     if (archivo) {
       // Asignar el archivo seleccionado a this.file
       this.file = archivo;
-  
+
       // Leer la imagen como un objeto de tipo Blob
       const reader = new FileReader();
       reader.onload = () => {
@@ -126,7 +135,7 @@ export class RejistroComponent {
       reader.readAsDataURL(archivo);
     }
   }
-  
+
 
   seleccionarFoto() {
     document.getElementById('foto')?.click();

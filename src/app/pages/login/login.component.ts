@@ -55,12 +55,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  selectCompany(idActivationUser: number) {
-
-      
-
-  }
-
   login() {
     if (this.formLogin.valid) {
       this._coreService.login(
