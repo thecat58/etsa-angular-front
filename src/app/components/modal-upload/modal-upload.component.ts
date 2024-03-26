@@ -12,11 +12,12 @@ import { NgxToastService } from 'ngx-toast-notifier';
 })
 export class ModalUploadComponent {
   talleres: tallerModel[] = [];
-  uploadForm: FormGroup;
+  fromTaller!: FormGroup;
   imageUrl: string = '';
   fotollena = File;
-
-  selectedImage: any;  // Agrega esta línea para definir la propiedad
+  usuarioId: any
+  selectedImage: any;
+  kike: any // Agrega esta línea para definir la propiedad
 
 
   constructor(
@@ -24,63 +25,81 @@ export class ModalUploadComponent {
     public dialogRef: MatDialogRef<ModalUploadComponent>,
     private _servicio: TallerService,
     private ngxToastService: NgxToastService,
-    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.uploadForm = this.formulario.group({
-      image: [null, Validators.required],
+    this.buildFormLogin();
+  }
+
+  private buildFormLogin() {
+    this.fromTaller = this.formulario.group({
+      foto: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
       direccion: ['', Validators.required]
     });
   }
-  onNoClick() {
-    // if (this.uploadForm.valid) {
-    //   const tallernuevo: tallerModel = {
-    //     foto: '',
-    //     nombre: this.uploadForm.value.name,
-    //     ubicacion: this.uploadForm.value.direccion,
-    //     usuriotaller: '1',
-    //     descripcion: this.uploadForm.value.description,
-    //   };
-    //   console.log(tallernuevo);
+ 
+  guardarTaller(event: any) {
+    const fotoInput = event.target.querySelector('#imageInput');
+    const usuarioIdString = localStorage.getItem('usuarioId');
+    this.usuarioId = usuarioIdString ? parseInt(usuarioIdString, 10) : null;
+    if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
+      const foto = fotoInput.files[0];
+      if (foto && this.fromTaller.valid) {
+        const nuevoRegistro: tallerModel = {
+          nombre: this.fromTaller.value.nombre,
+          ubicacion: this.fromTaller.value.direccion,
+          descripcion: this.fromTaller.value.description,
+          foto: foto,
+          usuriotaller: this.usuarioId
+        };
   
-    //   this._servicio.crarTaller(tallernuevo).subscribe({
-    //     next: (response) => {
-    //     },
-    //     error: (error) => {
-    //       this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
-    //     },
-    //     complete: () => {
-    //       this.ngxToastService.onSuccess('exitoso','')
-    //     }
-    //   });
-    // } else {
-    //   console.log('Formulario inválido');
-    // }
+        // Proceed with the registration
+        console.log('Nuevo registro:', nuevoRegistro);
+  
+        // Add the new registration to the array of registrations
+        this._servicio.crarTaller(nuevoRegistro).subscribe({
+          next: (response) => {
+            console.log('Respuesta del backend:', response);
+            this.ngxToastService.onSuccess('', '¡Registro exitoso!');
+          },
+          error: (error) => {
+            console.error('Error en el registro:', error);
+            this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
+          },
+          complete: () => {
+            console.log('Registro completo');
+          }
+        });
+      } else {
+        console.error('Imagen no válida o formulario inválido');
+        this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
+      }
+    } else {
+      console.error('Imagen no seleccionada');
+      this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Seleccione una imagen.');
+    }
   }
+  
+
 
   cerrar(): void {
     this.dialogRef.close();
   }
 
 
-
   onImageSelected(event: any): void {
     const file = event.target.files[0];
 
     if (file) {
-      this.fotollena=file;
+      this.fotollena = file;
+
       const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.imageUrl = e.target.result;
+      reader.onload = () => {
+        this.imageUrl = reader.result as string;
       };
       reader.readAsDataURL(file);
-
-      this.uploadForm.patchValue({
-        image: file
-      });
-
-      this.selectedImage = file;  // Asigna el valor de 'file' a 'selectedImage'
     }
   }
+
+
 }

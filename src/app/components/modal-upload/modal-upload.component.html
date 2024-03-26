@@ -1,36 +1,37 @@
 <div class="modal-container">
-    <h2 class="modal-title">Subir Imagen</h2>
-    
-    <form [formGroup]="uploadForm">
-      <div class="form-group">
-        <div class="image-preview">
-          <img *ngIf="imageUrl" [src]="imageUrl" alt="Preview">
-          <label for="imageInput" class="select-image-button">Seleccionar Imagen
-            <input type="file" id="imageInput" (change)="onImageSelected($event)" formControlName="image">
-          </label>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="nameInput" class="label">Nombre del Taller</label>
-        <input type="text" id="nameInput" formControlName="name" class="input">
-      </div>
-  
-      <div class="form-group">
-        <label for="descriptionTextarea" class="label">Descripción</label>
-        <input type="text" id="nameInput" formControlName="description" class="input">
+  <h2 class="modal-title">Subir Imagen</h2>
+
+  <form [formGroup]="fromTaller" (ngSubmit)="guardarTaller($event)">
+    <div class="form-group">
+      <div class="image-preview">
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="Preview">
       </div>
 
-      <div class="form-group">
-        <label for="descriptionTextarea" class="label">Direccion</label>
-        <input type="text" id="nameInput" formControlName="direccion" class="input">
-      </div>
-  
-      <div class="buttons-container">
-        
-        <button mat-button (click)="cerrar()" class="delete-button">Eliminar</button>
-        <button mat-button [mat-dialog-close]="uploadForm.value" (click)="onNoClick()" class="save-button">Guardar</button>
-      </div>
-    </form>
-  </div>
-  
+      <label for="imageInput" class="select-image-button">Seleccionar Imagen</label>
+      <input type="file" id="imageInput" (change)="onImageSelected($event)" formControlName="foto"
+        style="display: none;">
+
+    </div>
+
+    <div class="form-group">
+      <label for="nameInput" class="label">Nombre del Taller</label>
+      <input type="text" id="nameInput" formControlName="name" class="input">
+    </div>
+
+    <div class="form-group">
+      <label for="descriptionTextarea" class="label">Descripción</label>
+      <input type="text" id="nameInput" formControlName="description" class="input">
+    </div>
+
+    <div class="form-group">
+      <label for="descriptionTextarea" class="label">Direccion</label>
+      <input type="text" id="nameInput" formControlName="direccion" class="input">
+    </div>
+
+    <div class="buttons-container">
+
+      <button mat-button (click)="cerrar()" class="delete-button">Eliminar</button>
+      <button mat-button class="save-button">Guardar</button>
+    </div>
+  </form>
+</div>

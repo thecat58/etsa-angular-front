@@ -21,20 +21,28 @@ export class TallerService {
     return this._cpreservice.get<tallerModel[]>('taller/' + id);
   } 
   crarTaller(taller: tallerModel) {
-    taller.nombre = taller.nombre.toUpperCase();
-    taller.ubicacion = taller.ubicacion.toUpperCase();
+    taller.nombre = taller.nombre;
+    taller.ubicacion = taller.ubicacion;
     taller.descripcion = taller.descripcion;
     taller.usuriotaller = taller.usuriotaller;
     taller.foto = taller.foto;
-    return this._cpreservice.post<tallerModel>('taller/', taller);
+    const formData = new FormData();
+    formData.append('nombre', taller.nombre);
+    formData.append('descripcion', taller.descripcion);
+    formData.append('ubicacion', taller.ubicacion);
+    formData.append('usuriotaller', taller.usuriotaller);
+    formData.append('foto', taller.foto);
+
+    return this._cpreservice.post<tallerModel>('taller/', formData);
   }
 
-  updateTaller(index: number, updatedTaller: tallerModel): void {
-
+  actualizarTaller(updatedTaller: tallerModel) {
+return updatedTaller
   }
 
-  deleteTaller(index: number): void {
-
+  deleteTaller(id:number){
+    const url:string=`taller/${id}`;
+    return this._cpreservice.delete(url);
   }
 
 }

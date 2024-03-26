@@ -4,6 +4,7 @@ import { ResolveEnd, Router } from '@angular/router';
 import { AuthModel } from '../models/auth.model';
 import { PersonaModel } from '../models/persona.model';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ActivationCompanyUserModel } from '../models/activation-company-user.model';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,16 +36,19 @@ export class CoreService {
   check$ = this.check.asObservable();
   usuariomodel: PersonaModel[] = [];
   usuarioId: number = 0
+  private _refresh$ = new Subject<void>();
   constructor(
     private httpClient: HttpClient,
     private _router: Router,
-
     private _tokenService: HttpXsrfTokenExtractor,
     private http: HttpClient,
     private ngxToastService: NgxToastService,
 
 
   ) { }
+  get refresh$() {
+    return this._refresh$;
+  }
 
   public pass<T>(tabla: string, dato: string): Observable<T> {
     if (dato == '') {
@@ -77,7 +81,12 @@ export class CoreService {
       API_URL + url,
       data,
       this.getConfig()
-    );
+
+    ).pipe(
+      tap(() => {
+        this._refresh$.next();
+      })
+    )
   }
 
   public put<T>(url: String, data: any = {}): Observable<T> {
@@ -90,7 +99,11 @@ export class CoreService {
   }
 
   public delete(url: String) {
-    return this.httpClient.delete(API_URL + url, this.getConfig());
+    return this.httpClient.delete(API_URL + url, this.getConfig()).pipe(
+      tap(() => {
+        this._refresh$.next();
+      })
+    );
   }
 
   login(email: string, password: string) {
@@ -169,7 +182,7 @@ export class CoreService {
     });
   }
 
-  
+
 
   private getData(data: String | Object): String {
     let dataUrl = '?';
