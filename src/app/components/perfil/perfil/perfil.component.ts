@@ -24,7 +24,6 @@ export class PerfilComponent {
   abrirModal(): void {
     const dialogRef = this.dialog.open(ModalUploadComponent, {
       width: '500px', // ajusta el ancho según tus necesidades
-      data: {} // puedes pasar datos adicionales al modal si es necesario
     });
 
     dialogRef.afterClosed().subscribe(result => {

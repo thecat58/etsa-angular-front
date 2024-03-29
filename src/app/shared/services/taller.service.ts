@@ -19,7 +19,7 @@ export class TallerService {
 
   traerTallerPorId(id: number): Observable<tallerModel[]> {
     return this._cpreservice.get<tallerModel[]>('taller/' + id);
-  } 
+  }
   crarTaller(taller: tallerModel) {
     taller.nombre = taller.nombre;
     taller.ubicacion = taller.ubicacion;
@@ -36,12 +36,25 @@ export class TallerService {
     return this._cpreservice.post<tallerModel>('taller/', formData);
   }
 
-  actualizarTaller(updatedTaller: tallerModel) {
-return updatedTaller
+  actualizarTaller(taller: tallerModel) {
+    console.log('kike servicio')
+    const formData = new FormData();
+    formData.append('nombre', taller.nombre);
+    formData.append('descripcion', taller.descripcion);
+    formData.append('ubicacion', taller.ubicacion);
+    formData.append('usuriotaller', taller.usuriotaller);
+    formData.append('foto', taller.foto);
+
+    if (taller.foto && taller.foto instanceof File) {
+      formData.append('file', taller.foto);
+    }
+    const url: string = `taller/${taller.id}/`;
+
+    return this._cpreservice.put<tallerModel>(url,formData);
   }
 
-  deleteTaller(id:number){
-    const url:string=`taller/${id}`;
+  deleteTaller(id: number) {
+    const url: string = `taller/${id}`;
     return this._cpreservice.delete(url);
   }
 

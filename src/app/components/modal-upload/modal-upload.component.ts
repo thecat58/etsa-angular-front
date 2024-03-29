@@ -25,9 +25,9 @@ export class ModalUploadComponent {
     public dialogRef: MatDialogRef<ModalUploadComponent>,
     private _servicio: TallerService,
     private ngxToastService: NgxToastService,
-  ) {
-    this.buildFormLogin();
-  }
+    @Inject(MAT_DIALOG_DATA) public data?: tallerModel
+
+  ) { this.buildFormLogin(); this.setInfraestructura() }
 
   private buildFormLogin() {
     this.fromTaller = this.formulario.group({
@@ -37,39 +37,70 @@ export class ModalUploadComponent {
       direccion: ['', Validators.required]
     });
   }
- 
+  setInfraestructura() {
+    console.log(this.data , 'jejejejeje');
+    
+    if (this.data && this.data.id) {
+      this.fromTaller.patchValue({
+        id:this.data.id,
+        name: this.data.nombre,
+        description: this.data.descripcion,
+        direccion: this.data.ubicacion,
+        foto: this.data.foto,
+        usuriotaller:this.data.usuriotaller
+      });
+    }
+  }
+
   guardarTaller(event: any) {
     const fotoInput = event.target.querySelector('#imageInput');
     const usuarioIdString = localStorage.getItem('usuarioId');
-    this.usuarioId = usuarioIdString ? parseInt(usuarioIdString, 10) : null;
+    this.usuarioId = usuarioIdString ? parseInt(usuarioIdString) : null;
+   
+    
     if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
       const foto = fotoInput.files[0];
+
       if (foto && this.fromTaller.valid) {
         const nuevoRegistro: tallerModel = {
-          nombre: this.fromTaller.value.nombre,
+          id:this.data?.id,
+          nombre: this.fromTaller.value.name,
           ubicacion: this.fromTaller.value.direccion,
           descripcion: this.fromTaller.value.description,
           foto: foto,
           usuriotaller: this.usuarioId
         };
-  
+
         // Proceed with the registration
         console.log('Nuevo registro:', nuevoRegistro);
-  
+
         // Add the new registration to the array of registrations
-        this._servicio.crarTaller(nuevoRegistro).subscribe({
-          next: (response) => {
-            console.log('Respuesta del backend:', response);
-            this.ngxToastService.onSuccess('', '¡Registro exitoso!');
-          },
-          error: (error) => {
-            console.error('Error en el registro:', error);
-            this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
-          },
-          complete: () => {
-            console.log('Registro completo');
-          }
-        });
+        if (this.data?.id != null) {
+          console.log('Respuesta del backend:', this.data.id);
+          this._servicio.actualizarTaller(nuevoRegistro).subscribe({
+            next:(response)=>{
+              
+              this.ngxToastService.onSuccess('', '¡Registro sctuslizado!');
+            }
+          })
+        } else {
+          this._servicio.crarTaller(nuevoRegistro).subscribe({
+            next: (response) => {
+              console.log('Respuesta del backend:', response);
+              this.ngxToastService.onSuccess('', '¡Registro exitoso!');
+            },
+            error: (error) => {
+              console.error('Error en el registro:', error);
+              this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
+            },
+            complete: () => {
+              
+              this.ngxToastService.onSuccess('exitoso', '¡Registro exitoso!');
+              console.log('Registro completo');this.cerrar()
+            }
+          });
+        }
+
       } else {
         console.error('Imagen no válida o formulario inválido');
         this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
@@ -79,7 +110,7 @@ export class ModalUploadComponent {
       this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Seleccione una imagen.');
     }
   }
-  
+
 
 
   cerrar(): void {
@@ -91,7 +122,6 @@ export class ModalUploadComponent {
     const file = event.target.files[0];
 
     if (file) {
-      this.fotollena = file;
 
       const reader = new FileReader();
       reader.onload = () => {

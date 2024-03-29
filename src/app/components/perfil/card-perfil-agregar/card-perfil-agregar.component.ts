@@ -31,10 +31,7 @@ export class CardPerfilAgregarComponent implements OnInit {
   ngOnInit(): void {
 
     this.filter();
-
-  
       console.log(this.usuarioId, 'desde el componente usuario venta');
-
       this.suscriocion = this._coreservice.refresh$.subscribe(()=>{
         this.filter();
       })
@@ -63,12 +60,13 @@ export class CardPerfilAgregarComponent implements OnInit {
       }
     });
   }
-  abrirModal(): void {
-    const dialogRef = this.dialog.open(ModalUploadComponent, {
+
+  
+
+  abrirediatModal(event:tallerModel): void {
+    const dialogRef = this.dialog.open(ModalUploadComponent,{
       width: '500px',
-      data: {
-        profile: {}
-      }  // Puedes pasar datos adicionales al modal si es necesario
+      data: event  // Puedes pasar datos adicionales al modal si es necesario
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -78,6 +76,7 @@ export class CardPerfilAgregarComponent implements OnInit {
       }
     });
   }
+  
   
   eliminarTler(event: any) {
     this.tallerService.deleteTaller(event).subscribe(

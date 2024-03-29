@@ -95,7 +95,7 @@ export class CoreService {
     } else {
       data._method = 'PUT';
     }
-    return this.httpClient.post<T>(API_URL + url, data, this.getConfig());
+    return this.httpClient.put<T>(API_URL + url, data, this.getConfig());
   }
 
   public delete(url: String) {
