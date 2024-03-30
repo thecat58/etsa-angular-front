@@ -114,12 +114,14 @@ export class CoreService {
         console.log('token1', datos);
         this.usuarioId = datos.user.id;
         if (datos && datos.token) {
-          // Guardar token en el localStorage
-          localStorage.setItem('token', datos.token);
-
-          // Guardar usuarioId en el localStorage
+          
+  
+          // Guardar otros datos del usuario en el localStorage
+          localStorage.setItem('usuario', JSON.stringify(datos.user));
           localStorage.setItem('usuarioId', datos.user.id);
+          localStorage.setItem('usuariofoto', datos.user.foto);
 
+  
           if (datos.user.vededor) {
             this._router.navigate(['perfil-venta']);
           } else {
@@ -133,7 +135,7 @@ export class CoreService {
       },
       (error) => {
         console.error(error);
-
+  
         if (error.status === 400) {
           this.ngxToastService.onDanger('ERROR', 'COMPRUEBE LOS DATOS O REGÍSTRESE');
         } else {
@@ -142,6 +144,7 @@ export class CoreService {
       }
     );
   }
+  
 
   getUsuarioId(): number {
     return this.usuarioId;
