@@ -1,20 +1,68 @@
-.contenedor{
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* Alinear las tarjetas al principio */
+  flex-direction: row; /* Alinear elementos en una fila */
 }
-.tarjeta{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+.card-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+padding: 20px;
+}
+
+.card {
   background-color: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  flex-direction: column;
-  gap: 10px;
-  width: 270px;
-  height: 282px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
 }
+
+.card:hover {
+transform: scale(1.05);
+}
+
+.card-img {
+height: 200px;
+width: 284px;
+}
+
+.card-content {
+padding: 20px;
+}
+
+.card-title {
+margin: 0;
+font-size: 1.5em;
+}
+
+.card-text {
+margin: 10px 0;
+color: #666;
+}
+.location-icon {
+max-width: 20px; /* Ajusta el tamaño según tus necesidades */
+height: auto;
+margin-top: 5px; /* Ajusta el margen superior según tus necesidades */
+}
+.location-text {
+margin: 0;
+}
+
+.ver-mas {
+border: none;
+background: none;
+color: inherit;
+padding: 0;
+margin: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+}
+
 .buttons{
   display: flex;
   flex-direction: row;
@@ -38,15 +86,6 @@
   padding:8px 15px;
   width: 120px;
   color: #101296;
-}
-.perfil-card-agregar img{
-  width: 245px;
-  height: 170px;
-  border-radius: 10px;
-}
-h5{
-  font-style: 18px;
-  font-weight: 600;
 }
 
 
