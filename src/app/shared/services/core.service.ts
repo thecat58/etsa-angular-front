@@ -4,6 +4,7 @@ import { ResolveEnd, Router } from '@angular/router';
 import { AuthModel } from '../models/auth.model';
 import { PersonaModel } from '../models/persona.model';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ActivationCompanyUserModel } from '../models/activation-company-user.model';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,16 +36,19 @@ export class CoreService {
   check$ = this.check.asObservable();
   usuariomodel: PersonaModel[] = [];
   usuarioId: number = 0
+  private _refresh$ = new Subject<void>();
   constructor(
     private httpClient: HttpClient,
     private _router: Router,
-
     private _tokenService: HttpXsrfTokenExtractor,
     private http: HttpClient,
     private ngxToastService: NgxToastService,
 
 
   ) { }
+  get refresh$() {
+    return this._refresh$;
+  }
 
   public pass<T>(tabla: string, dato: string): Observable<T> {
     if (dato == '') {
@@ -77,7 +81,12 @@ export class CoreService {
       API_URL + url,
       data,
       this.getConfig()
-    );
+
+    ).pipe(
+      tap(() => {
+        this._refresh$.next();
+      })
+    )
   }
 
   public put<T>(url: String, data: any = {}): Observable<T> {
@@ -86,11 +95,15 @@ export class CoreService {
     } else {
       data._method = 'PUT';
     }
-    return this.httpClient.post<T>(API_URL + url, data, this.getConfig());
+    return this.httpClient.put<T>(API_URL + url, data, this.getConfig());
   }
 
   public delete(url: String) {
-    return this.httpClient.delete(API_URL + url, this.getConfig());
+    return this.httpClient.delete(API_URL + url, this.getConfig()).pipe(
+      tap(() => {
+        this._refresh$.next();
+      })
+    );
   }
 
   login(email: string, password: string) {
@@ -101,12 +114,14 @@ export class CoreService {
         console.log('token1', datos);
         this.usuarioId = datos.user.id;
         if (datos && datos.token) {
-          // Guardar token en el localStorage
-          localStorage.setItem('token', datos.token);
-
-          // Guardar usuarioId en el localStorage
+          
+  
+          // Guardar otros datos del usuario en el localStorage
+          localStorage.setItem('usuario', JSON.stringify(datos.user));
           localStorage.setItem('usuarioId', datos.user.id);
+          localStorage.setItem('usuariofoto', datos.user.foto);
 
+  
           if (datos.user.vededor) {
             this._router.navigate(['perfil-venta']);
           } else {
@@ -120,7 +135,7 @@ export class CoreService {
       },
       (error) => {
         console.error(error);
-
+  
         if (error.status === 400) {
           this.ngxToastService.onDanger('ERROR', 'COMPRUEBE LOS DATOS O REGÍSTRESE');
         } else {
@@ -129,6 +144,7 @@ export class CoreService {
       }
     );
   }
+  
 
   getUsuarioId(): number {
     return this.usuarioId;
@@ -169,7 +185,7 @@ export class CoreService {
     });
   }
 
-  
+
 
   private getData(data: String | Object): String {
     let dataUrl = '?';

@@ -1,24 +1,22 @@
+<div *ngIf="usuarioGuardado">
+
 <div class="perfil-card">
-    <div class="info-container">
-      <div class="info-row">
-        <span>Nombre Completo:</span>
-        <input type="text" placeholder="Ingresa tu nombre completo">
-      </div>
-      <div class="info-row">
-        <span>Correo:</span>
-        <input type="email" placeholder="Ingresa tu correo electrónico">
-      </div>
-      <div class="info-row">
-        <span>Telefono:</span>
-        <input type="tel" placeholder="Ingresa tu número de teléfono">
-      </div>
-      <div class="info-row">
-        <span>Direccion:</span>
-        <input type="text" placeholder="Ingresa tu dirección">
-      </div>
+  <div class="info-container">
+    <div class="info-row">
+      <span>Nombre Completo:</span>
+      <span>{{usuarioGuardado.primer_nombre }} {{usuarioGuardado.primer_apellido }}</span> <!-- Utilizamos un span para mostrar el nombre -->
     </div>
-    <div class="update-button">
-      <button>Actualizar perfil</button>
+    <div class="info-row">
+      <span>Correo:</span>
+      <span>{{usuarioGuardado.email }}</span> <!-- Utilizamos un span para mostrar el correo -->
+    </div>
+    <div class="info-row">
+      <span>Teléfono:</span>
+      <span>{{usuarioGuardado.telefono }}</span> <!-- Utilizamos un span para mostrar el teléfono -->
     </div>
   </div>
-
+  <div class="update-button">
+    <button>Actualizar perfil</button>
+  </div>
+</div>
+</div>

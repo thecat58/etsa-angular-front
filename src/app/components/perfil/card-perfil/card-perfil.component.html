@@ -1,19 +1,20 @@
+<div *ngIf="usuarioGuardado">
 <div class="contenedor">
-  <h1>Mi perfil de venta</h1>
     <div class="perfil-card">
         <div class="foto">
-            <img src="assets/img/imgperfil.png" alt="Imagen de perfil">
+          <img [src]="API_URL + usuarioGuardado.foto" alt="Imagen de perfil">
         </div>
         <ul>
           <li class="nombre">
-            <span>Cristian</span>
+            <span>{{usuarioGuardado.primer_nombre }} </span>
           </li>
           <li>
-            <span>Mecanico</span>
+            <span>{{usuarioGuardado.vendedor? 'vendedor': 'cliente' }}</span>
           </li>
           <li>
-            <span>popayan</span>
+            <span> {{ usuarioGuardado.municipio.departamento_id.nombre }}</span>
           </li>
         </ul>
     </div>
+  </div>
 </div>

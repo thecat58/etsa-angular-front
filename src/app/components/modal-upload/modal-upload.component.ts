@@ -12,11 +12,12 @@ import { NgxToastService } from 'ngx-toast-notifier';
 })
 export class ModalUploadComponent {
   talleres: tallerModel[] = [];
-  uploadForm: FormGroup;
+  fromTaller!: FormGroup;
   imageUrl: string = '';
   fotollena = File;
-
-  selectedImage: any;  // Agrega esta línea para definir la propiedad
+  usuarioId: any
+  selectedImage: any;
+  kike: any // Agrega esta línea para definir la propiedad
 
 
   constructor(
@@ -24,63 +25,111 @@ export class ModalUploadComponent {
     public dialogRef: MatDialogRef<ModalUploadComponent>,
     private _servicio: TallerService,
     private ngxToastService: NgxToastService,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.uploadForm = this.formulario.group({
-      image: [null, Validators.required],
+    @Inject(MAT_DIALOG_DATA) public data?: tallerModel
+
+  ) { this.buildFormLogin(); this.setInfraestructura() }
+
+  private buildFormLogin() {
+    this.fromTaller = this.formulario.group({
+      foto: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
       direccion: ['', Validators.required]
     });
   }
-  onNoClick() {
-    // if (this.uploadForm.valid) {
-    //   const tallernuevo: tallerModel = {
-    //     foto: '',
-    //     nombre: this.uploadForm.value.name,
-    //     ubicacion: this.uploadForm.value.direccion,
-    //     usuriotaller: '1',
-    //     descripcion: this.uploadForm.value.description,
-    //   };
-    //   console.log(tallernuevo);
-  
-    //   this._servicio.crarTaller(tallernuevo).subscribe({
-    //     next: (response) => {
-    //     },
-    //     error: (error) => {
-    //       this.ngxToastService.onDanger('EROR','COMPRUEBE LOS DATOS O REJISTRESE')
-    //     },
-    //     complete: () => {
-    //       this.ngxToastService.onSuccess('exitoso','')
-    //     }
-    //   });
-    // } else {
-    //   console.log('Formulario inválido');
-    // }
+  setInfraestructura() {
+    console.log(this.data , 'jejejejeje');
+    
+    if (this.data && this.data.id) {
+      this.fromTaller.patchValue({
+        id:this.data.id,
+        name: this.data.nombre,
+        description: this.data.descripcion,
+        direccion: this.data.ubicacion,
+        foto: this.data.foto,
+        usuriotaller:this.data.usuriotaller
+      });
+    }
   }
+
+  guardarTaller(event: any) {
+    const fotoInput = event.target.querySelector('#imageInput');
+    const usuarioIdString = localStorage.getItem('usuarioId');
+    this.usuarioId = usuarioIdString ? parseInt(usuarioIdString) : null;
+   
+    
+    if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
+      const foto = fotoInput.files[0];
+
+      if (foto && this.fromTaller.valid) {
+        const nuevoRegistro: tallerModel = {
+          id:this.data?.id,
+          nombre: this.fromTaller.value.name,
+          ubicacion: this.fromTaller.value.direccion,
+          descripcion: this.fromTaller.value.description,
+          foto: foto,
+          usuriotaller: this.usuarioId
+        };
+
+        // Proceed with the registration
+        console.log('Nuevo registro:', nuevoRegistro);
+
+        // Add the new registration to the array of registrations
+        if (this.data?.id != null) {
+          console.log('Respuesta del backend:', this.data.id);
+          this._servicio.actualizarTaller(nuevoRegistro).subscribe({
+            next:(response)=>{
+              
+              this.ngxToastService.onSuccess('', '¡Registro sctuslizado!');
+            }
+          })
+        } else {
+          this._servicio.crarTaller(nuevoRegistro).subscribe({
+            next: (response) => {
+              console.log('Respuesta del backend:', response);
+              this.ngxToastService.onSuccess('', '¡Registro exitoso!');
+            },
+            error: (error) => {
+              console.error('Error en el registro:', error);
+              this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
+            },
+            complete: () => {
+              
+              this.ngxToastService.onSuccess('exitoso', '¡Registro exitoso!');
+              console.log('Registro completo');this.cerrar()
+            }
+          });
+        }
+
+      } else {
+        console.error('Imagen no válida o formulario inválido');
+        this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Compruebe los datos.');
+      }
+    } else {
+      console.error('Imagen no seleccionada');
+      this.ngxToastService.onDanger('ERROR', '¡Error al registrar! Seleccione una imagen.');
+    }
+  }
+
+
 
   cerrar(): void {
     this.dialogRef.close();
   }
 
 
-
   onImageSelected(event: any): void {
     const file = event.target.files[0];
 
     if (file) {
-      this.fotollena=file;
+
       const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.imageUrl = e.target.result;
+      reader.onload = () => {
+        this.imageUrl = reader.result as string;
       };
       reader.readAsDataURL(file);
-
-      this.uploadForm.patchValue({
-        image: file
-      });
-
-      this.selectedImage = file;  // Asigna el valor de 'file' a 'selectedImage'
     }
   }
+
+
 }
