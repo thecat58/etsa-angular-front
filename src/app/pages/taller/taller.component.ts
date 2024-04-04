@@ -12,7 +12,7 @@ export class TallerComponent {
   talleres: tallerModel[] = [];
   talleresMostrados: tallerModel[] = []; // Tener una lista separada para los talleres mostrados
   tallerSeleccionado: tallerModel = { foto:  new File([],''), nombre: '', ubicacion: '', usuriotaller: '', descripcion:'' }; // Inicializa tallerSeleccionado con un "taller vacío"
-  cantidadMostrar: number = 3; // Cantidad de talleres para mostrar inicialmente
+  cantidadMostrar: number = 100; // Cantidad de talleres para mostrar inicialmente
 
   constructor(private tallerService: TallerService) { }
 

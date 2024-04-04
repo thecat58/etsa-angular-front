@@ -72,15 +72,16 @@ export class ModalUploadComponent {
         };
 
         // Proceed with the registration
-        console.log('Nuevo registro:', nuevoRegistro);
+       
 
         // Add the new registration to the array of registrations
-        if (this.data?.id != null) {
+        if (this.data?.id != null) { console.log('Nuevo data:', this.data);
           console.log('Respuesta del backend:', this.data.id);
           this._servicio.actualizarTaller(nuevoRegistro).subscribe({
             next:(response)=>{
+              this.cerrar()
+              this.ngxToastService.onSuccess('', '¡Registro actualizado!');
               
-              this.ngxToastService.onSuccess('', '¡Registro sctuslizado!');
             }
           })
         } else {
