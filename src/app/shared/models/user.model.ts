@@ -16,7 +16,7 @@ export interface UserModel {
   telefono: number;
   genero: string;
   fechanacimiento: string;
-  foto: string | null;
+  foto: File
   n_identificacion: number;
   email: string;
   created_at: string;

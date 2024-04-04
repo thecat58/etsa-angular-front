@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserModel } from 'src/app/shared/models/user.model';
+import { ModalPerfilComponent } from '../../modal-perfil/modal-perfil.component';
+import { ProfileService } from 'src/app/shared/services/profile.service';
 
 @Component({
   selector: 'app-card-perfil-datos',
@@ -8,8 +11,10 @@ import { UserModel } from 'src/app/shared/models/user.model';
 })
 export class CardPerfilDatosComponent {
   usuarioGuardado: UserModel | null = null;
+  
 
-  constructor() { }
+  constructor(private dialog: MatDialog,
+    private profileService: ProfileService,) { }
 
   ngOnInit(): void {
     const usuarioGuardadoString = localStorage.getItem('usuario');
@@ -19,4 +24,21 @@ export class CardPerfilDatosComponent {
       console.log('No se encontraron datos de usuario en el localStorage');
     }
   }
+
+  abrirediatModal(event:UserModel): void {
+    const dialogRef = this.dialog.open(ModalPerfilComponent,{
+      width: '500px',
+      data: event 
+      
+      // Puedes pasar datos adicionales al modal si es necesario
+    });
+console.log('Perfil guardado:', event);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.profileService.addProfile(result);
+        console.log('Perfil guardado:', result);
+      }
+    });
+  }
+  
 }
