@@ -11,7 +11,7 @@ import { ProfileService } from 'src/app/shared/services/profile.service';
 })
 export class CardPerfilDatosComponent {
   usuarioGuardado: UserModel | null = null;
-  
+
 
   constructor(private dialog: MatDialog,
     private profileService: ProfileService,) { }
@@ -25,14 +25,14 @@ export class CardPerfilDatosComponent {
     }
   }
 
-  abrirediatModal(event:UserModel): void {
-    const dialogRef = this.dialog.open(ModalPerfilComponent,{
+  abrirediatModal(event: UserModel): void {
+    const dialogRef = this.dialog.open(ModalPerfilComponent, {
       width: '500px',
-      data: event 
-      
+      data: event
+
       // Puedes pasar datos adicionales al modal si es necesario
     });
-console.log('Perfil guardado:', event);
+    console.log('Perfil', event);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.profileService.addProfile(result);
@@ -40,5 +40,5 @@ console.log('Perfil guardado:', event);
       }
     });
   }
-  
+
 }

@@ -14,7 +14,6 @@ export class ModalUploadComponent {
   talleres: tallerModel[] = [];
   fromTaller!: FormGroup;
   imageUrl: string = '';
-  fotollena = File;
   usuarioId: any
   selectedImage: any;
   kike: any // Agrega esta línea para definir la propiedad
@@ -38,7 +37,7 @@ export class ModalUploadComponent {
     });
   }
   setInfraestructura() {
-    console.log(this.data , 'jejejejeje');
+    console.log(this.data?.foto , 'jejejejeje');
     
     if (this.data && this.data.id) {
       this.fromTaller.patchValue({
@@ -72,15 +71,16 @@ export class ModalUploadComponent {
         };
 
         // Proceed with the registration
-        console.log('Nuevo registro:', nuevoRegistro);
+       
 
         // Add the new registration to the array of registrations
-        if (this.data?.id != null) {
+        if (this.data?.id != null) { console.log('Nuevo data:', this.data);
           console.log('Respuesta del backend:', this.data.id);
           this._servicio.actualizarTaller(nuevoRegistro).subscribe({
             next:(response)=>{
+              this.cerrar()
+              this.ngxToastService.onSuccess('', '¡Registro actualizado!');
               
-              this.ngxToastService.onSuccess('', '¡Registro sctuslizado!');
             }
           })
         } else {

@@ -1,20 +1,26 @@
 <div *ngIf="usuarioGuardado">
-<div class="contenedor">
+  <div class="contenedor">
     <div class="perfil-card">
-        <div class="foto">
+      <div class="foto">
+        <ng-container *ngIf="usuarioGuardado.foto">
           <img [src]="API_URL + usuarioGuardado.foto" alt="Imagen de perfil">
-        </div>
-        <ul>
-          <li class="nombre">
-            <span>{{usuarioGuardado.primer_nombre }} </span>
-          </li>
-          <li>
-            <span>{{usuarioGuardado.vendedor? 'vendedor': 'cliente' }}</span>
-          </li>
-          <li>
-            <span> {{ usuarioGuardado.municipio.departamento_id.nombre }}</span>
-          </li>
-        </ul>
+        </ng-container>
+        <ng-container *ngIf="!usuarioGuardado.foto">
+          <img src="../../../../assets/img/imgperfil.png" alt="Imagen predeterminada">
+        </ng-container>
+      </div>
+
+      <ul>
+        <li class="nombre">
+          <span>{{usuarioGuardado.primer_nombre }} </span>
+        </li>
+        <li>
+          <span>{{usuarioGuardado.vendedor? 'cliente': 'vendedor' }}</span>
+        </li>
+        <li>
+          <span> {{ usuarioGuardado.municipio.departamento_id.nombre }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

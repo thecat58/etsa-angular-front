@@ -1,25 +1,43 @@
-<form>
-    <div class="form-group">
-      <label for="email">Correo:</label>
-      <input type="email" class="form-control" id="email"  name="email">
-    </div>
-    <div class="form-group">
-      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-      <input type="date" class="form-control" id="fechaNacimiento"  name="fechaNacimiento">
-    </div>
-    <div class="form-group">
-      <label for="genero">Género:</label>
-      <select class="form-control" id="genero"  name="genero">
-        <option value="Masculino">Masculino</option>
-        <option value="Femenino">Femenino</option>
-        <!-- Otras opciones de género -->
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" class="form-control" id="telefono"  name="telefono">
-    </div>
-    <!-- Otros campos del formulario según el JSON proporcionado -->
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
-  
+<div class="modal-container">
+    <form [formGroup]="fromUsuario"  >
+      <div class="form-group">
+        <div class="image-preview">
+          <img *ngIf="imageUrl" [src]="imageUrl" alt="Vista previa">
+        </div>
+        <div class="image-preview">
+        <img *ngIf="!imageUrl && data?.foto" [src]="API_URL + data?.foto" alt="Foto de perfil">
+      </div>
+        <label for="imageInput" class="select-image-button">Seleccionar Imagen</label>
+        <input type="file" id="imageInput" (change)="onImageSelected($event)" formControlName="foto"
+          style="display: none;">
+      </div>
+      
+    
+        <div class="form-group">
+          <label for="nameInput" class="label">Nombre del Taller</label>
+          <input type="text" id="nameInput" formControlName="name" class="input">
+        </div>
+    
+        <div class="form-group">
+          <label for="descriptionTextarea" class="label">Descripción</label>
+          <input type="text" id="nameInput" formControlName="description" class="input">
+        </div>
+    
+        <div class="form-group">
+          <label for="descriptionTextarea" class="label">Direccion</label>
+          <input type="text" id="nameInput" formControlName="direccion" class="input">
+        </div>
+    
+        <div class="buttons-container">
+    
+          <button mat-button (click)="cerrar()" class="delete-button">cerrar</button>
+    
+          <button mat-button class="save-button">{{data ? 'actualizar': 'Guardar' }} </button>
+        </div>
+      </form>
+      <div class="form-group">
+        <label for="passwordInput" class="label">Contraseña Actual</label>
+        <input type="password" id="passwordInput" formControlName="password" class="input">
+      </div>
+
+</div>
