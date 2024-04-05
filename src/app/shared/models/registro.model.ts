@@ -13,5 +13,6 @@ export interface registroModel {
   tipodocumento:     number;
   municipio:         number;
   is_active: boolean;
+  vededor: boolean;
 
 }

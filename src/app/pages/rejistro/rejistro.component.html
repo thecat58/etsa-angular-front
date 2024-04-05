@@ -1,8 +1,21 @@
 <div class="block-container">
     <div class="container-login">
         <form [formGroup]="formLogin" (ngSubmit)="submitForm($event)">
-                <div class="logo-social">
-                <img src="assets/img/logo.png" alt="Logo" class="logo-sena">
+            <div class="logo-social">
+                 <div class="input-cont">
+                    <div *ngIf="!fotoURL">
+                        <!-- Si no hay foto seleccionada, mostrar la imagen por defecto -->
+                        <img class="foto-perfil" src="assets/img/logo.png" alt="Imagen por defecto">
+                    </div>
+                    <div *ngIf="fotoURL">
+                        <!-- Si hay una foto seleccionada, mostrarla -->
+                        <img class="foto-perfil" [src]="fotoURL" alt="Imagen seleccionada">
+                    </div>
+                    <div>
+                        <button type="button" class="custom-file-upload" (click)="seleccionarFoto()">Seleccionar foto</button>
+                        <input type="file" id="foto" name="foto" formControlName="foto" accept="image/*" style="display: none;" (change)="onFotoSeleccionada($event)">
+                    </div>
+                </div>
                 <div class="social-icons">
                     <img src="assets/img/facebook.png" alt="Facebook" class="social-icon">
                     <img src="assets/img/google.png" alt="Google" class="social-icon">
@@ -11,53 +24,46 @@
 
             <div class="inputs">
 
-                <div class="input-cont">
-                    <div>
-                        <img [src]="fotoURL" alt="Foto de perfil" class="foto-perfil" *ngIf="fotoURL">
-                    </div>
+               
+                <div class="input-checkbox"> 
+                    <!-- Cuadro de selección para vendedor -->
+                    <input type="checkbox" id="vendedorCheckbox" formControlName="vededor">¿Es vendedor?
                 </div>
-                <div class="input-cont">
-                    <div>
-                        <button type="button" class="custom-file-upload" (click)="seleccionarFoto()">Seleccionar
-                            foto</button>
-                        <input type="file" id="foto" name="foto" formControlName="foto" accept="image/*"
-                            style="display: none;" (change)="onFotoSeleccionada($event)">
-                    </div>
-                </div>
+
                 <div class="input-row">
                     <div class="input-cont">
                         <input type="text" placeholder="Nombre" autocomplete="name" formControlName="primer_nombre">
                     </div>
                     <div class="input-cont">
-                        <input type="text" placeholder="Apellido" autocomplete="family-name" formControlName="primer_apellido">
+                        <input type="text" placeholder="Apellido" autocomplete="family-name"
+                            formControlName="primer_apellido">
                     </div>
-                </div>
-                    <div class="input-cont">
-                        <input type="date" placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento">
-                    </div>
-             
+                </div> Fecha de Nacimiento
                 <div class="input-cont">
-                    <div>
+                    <input type="date" placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento">
+                </div>
+
+                <div class="input-cont">
+                    <div> Municipio
                         <!-- Campo Departamento (Municipio) -->
-                        <select formControlName="municipio" >
-                            <option  *ngFor="let municipio of municipios" [value]="municipio.id">
-                            {{ municipio.nombre }}</option>
+                        <select formControlName="municipio" placeholder="Correo electrónico">
+                            <option *ngFor="let municipio of municipios" [value]="municipio.id">
+                                {{ municipio.nombre }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="input-cont">
                     <div>
                         <!-- Campo Identificacion -->
-                        <input type="number" placeholder="identificacion" 
-                            formControlName="n_identificacion">
+                        <input type="number" placeholder="identificacion" formControlName="n_identificacion">
                     </div>
                 </div>
                 <div class="input-cont">
-                    <div>
+                    <div> Tipo de identificacion
                         <!-- Campo Identificación -->
-                        <select formControlName="tipodocumento" >
-                            <option  *ngFor="let identificacion of identificaciones" [value]="identificacion.id">
-                            {{ identificacion.nombre }}</option>
+                        <select formControlName="tipodocumento">
+                            <option *ngFor="let identificacion of identificaciones" [value]="identificacion.id">
+                                {{ identificacion.nombre }}</option>
                         </select>
 
                     </div>

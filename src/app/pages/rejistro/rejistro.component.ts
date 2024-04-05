@@ -36,6 +36,7 @@ export class RejistroComponent {
   ngOnInit(): void {
     this.obtenerIdentificaciones();
     this.obtenerMunicipio();
+    
   }
 
   private buildFormLogin() {
@@ -48,15 +49,18 @@ export class RejistroComponent {
       foto: ['', Validators.required],
       tipodocumento: ['', Validators.required],
       municipio: ['', Validators.required],
+      vededor: [false, Validators.required],
+
     })
   }
 
   submitForm(event: any) {
     this.file = event.target.foto.files[0];
-
+console.log(this.formLogin.value.vededor,'vendedor')
     if (this.formLogin.valid && this.file instanceof File) {
       // Crear una instancia del modelo registro y llenarla con los datos del formulario
       const nuevoRegistro: registroModel = {
+        vededor:this.formLogin.value.vededor,
         is_active: true,
         primer_nombre: this.formLogin.value.primer_nombre,
         password: this.formLogin.value.password,
