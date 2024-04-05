@@ -54,7 +54,7 @@ export class TallerService {
   }
 
   deleteTaller(id: number) {
-    const url: string = `taller/${id}`;
+    const url: string = `taller/${id}/`;
     return this._cpreservice.delete(url);
   }
 

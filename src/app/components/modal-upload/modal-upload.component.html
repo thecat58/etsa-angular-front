@@ -2,8 +2,9 @@
   <h2 class="modal-title">Subir Imagen</h2>
 
   <form [formGroup]="fromTaller"  (ngSubmit)="guardarTaller($event)">
-    <div class="form-group">
+    <div class="form-group">   
       <div class="image-preview">
+     
         <img *ngIf="imageUrl" [src]="imageUrl" alt="Preview">
       </div>
 

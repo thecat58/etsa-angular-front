@@ -1,0 +1,108 @@
+.modal-container {
+    padding: 75px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: auto;
+  
+    }
+    
+    /* Estilo para el contenido dentro del modal */
+    .modal-container .content {
+      border: 1px solid grey; /* Borde interno de color gris */
+      border-radius: 20px;
+      padding: 15px; /* Ajusta el espaciado interno según tus preferencias */
+    }
+    
+    /* Estilo para el subborde gris en los campos de entrada */
+    .input,
+    .textarea {
+      width: 100%;
+      padding: 8px;
+      border: none; /* Eliminar el borde principal para evitar duplicación con el subborde gris */
+      border-bottom: 1px solid #ccc; /* Agregar un borde inferior principal */
+      border-radius: 4px;
+    }
+    
+    /* Agregar subborde gris */
+    .input:focus,
+    .textarea:focus {
+      border-bottom: 2px solid #808080; /* Subborde gris al enfocar */
+      outline: none; /* Eliminar el contorno predeterminado del enfoque */
+    }
+    
+    .image-preview img {
+      max-width: 100%;
+      max-height: 200px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      
+    }
+    
+    .buttons-container {
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    
+    .cancel-button {
+      margin-right: 10px;
+      background-color: #ff5c5c; /* Cambia el color de fondo del botón Cancelar a rojo */
+      color: #fff;
+      border-radius: 4px;
+    }
+    
+    .save-button {
+      background-color: #4caf50;
+      color: #fff;
+      border-radius: 4px;
+    }
+    /* Estilo para la entrada de archivo y el botón de selección de imagen */
+  .image-preview input[type="file"] {
+      display: none; /* Oculta la entrada de archivo original */
+    }
+    
+    .image-preview label {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #ff5c5c; /* Fondo de color rojo */
+      color: #fff; /* Texto en color blanco */
+      border: 1px solid #ff5c5c; /* Borde rojo */
+      border-radius: 4px; /* Bordes redondeados */
+      cursor: pointer;
+    }
+    
+    /* Cambiar el estilo del botón al pasar el ratón sobre él */
+    .image-preview label:hover {
+      background-color: #ff5c5c; /* Cambia el color al pasar el ratón */
+      border: 1px solid #ff5c5c;
+    }
+    .delete-button {
+      background-color: #ff5c5c ;
+      color: #fff;
+      border-radius: 4px;
+     
+    }
+    
+    .delete-button:hover {
+      background-color: #d43f3a; /* Cambiar el color al pasar el ratón para indicar interactividad */
+    }
+    .save-button:hover {
+      background-color: #4caf50; /* Cambiar el color al pasar el ratón para indicar interactividad */
+    }
+    .select-image-button {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #ff5c5c;
+      color: #fff;
+      border: 1px solid #ff5c5c;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .select-image-button:hover {
+      background-color: #d43f3a;
+      border: 1px solid #d43f3a;
+    }
+    
+    
+    
