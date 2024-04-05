@@ -15,5 +15,12 @@ export class AgendaService {
 getagendas(): Observable<AgendaModel[]> {
   return this._coreservice.get<AgendaModel[]>('citas/');
 }
-
+addAgenda(agenda: AgendaModel): Observable<AgendaModel> {
+  return this._coreservice.post<AgendaModel>('citas/', agenda);
 }
+
+updateAgenda(agenda: AgendaModel): Observable<AgendaModel> {
+  return this._coreservice.put<AgendaModel>('citas/' + agenda.id, agenda);
+}
+}
+

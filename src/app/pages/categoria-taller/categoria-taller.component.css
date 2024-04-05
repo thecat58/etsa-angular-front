@@ -1,17 +1,26 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body, html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-/* Estilo para el contenedor del carrusel */
 .container-fluid {
-    width: 100%; /* Reducir el ancho máximo del contenedor */
-    margin: 0 auto; /* Centrar el contenedor horizontalmente */
-    display: block;
-    object-position: top;
-  
-  }
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  object-position: top;
+  position: relative;
+  top: -70px; /* Ajusta la posición hacia arriba para compensar el espacio del navbar */
+}
+.container-fluid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.custom-container {
+  margin-top: -30px; /* Ajusta el margen superior negativo para compensar el espacio del navbar */
+}
+
 
   .row {
     display: flex;
@@ -29,6 +38,14 @@ body, html {
     
   
   }
+  .card {
+    height: 300px; /* Establece una altura fija para todas las tarjetas */
+  }
+  
+  .card-img-top {
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    object-fit: cover; /* Escala la imagen para que cubra todo el contenedor sin distorsionarse */
+  }
   
   .image-container {
     position: relative;
@@ -36,7 +53,6 @@ body, html {
     max-height: 50vh; /* Establece una altura máxima del 50% de la altura de la pantalla */
     overflow: hidden;
     margin-bottom: 30px;
-    margin: 0%;
   }
   
   .image-container img {
@@ -119,6 +135,17 @@ body, html {
   .flip-card-back p {
     margin: 0; /* Eliminar el margen predeterminado del párrafo */
     margin-bottom: 10px;
+  }
+  .btn-primary {
+    color: #fff; /* Color del texto */
+    background-color:  #9DB2C3; /* Color de fondo */
+    border-color:  #9DB2C3; /* Color del borde */
+  }
+  
+  .btn-primary:hover {
+    color: #fff; /* Color del texto al pasar el mouse */
+    background-color: #E74C3C ; /* Color de fondo al pasar el mouse */
+    border-color: #E74C3C ; /* Color del borde al pasar el mouse */
   }
   
   

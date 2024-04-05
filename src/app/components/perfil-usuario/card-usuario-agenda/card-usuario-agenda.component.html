@@ -1,16 +1,18 @@
- <div class="contenedor">
-   
+<div class="contenedor">
 
-        <div *ngFor="let agenda of agendas" class="card">
 
-            <div class="perfil-card-agregar">
-                <img src="/assets/img/imgtarjeta1.jpeg" alt="Imagen de perfil">
-            </div>
-            <h5>{{agenda.asunto}}</h5>
-            <h5>{{agenda.hora}}</h5>
-            <h5>{{agenda.lugar}}</h5>
-            <div class="buttons">
-                <button class="btn-actualizar">Ver</button>
-                <button class="btn-eliminar">Eliminar</button>
-            </div>
+    <div *ngFor="let agenda of agendas" class="card">
+
+        <div class="perfil-card-agregar">
+            <img src="/assets/img/imgtarjeta1.jpeg" alt="Imagen de perfil">
         </div>
+        <h5>{{agenda.asunto}}</h5>
+        <h5>{{agenda.hora}}</h5>
+        <h5>{{agenda.lugar}}</h5>
+        <div class="buttons">
+            <a class="btn-actualizar" (click)="abrirediatModal()">Ver</a>
+            <button class="btn-eliminar">Eliminar</button>
+        </div>
+    </div>
+</div>
+

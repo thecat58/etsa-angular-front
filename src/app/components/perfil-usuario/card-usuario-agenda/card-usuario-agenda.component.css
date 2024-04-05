@@ -1,61 +1,47 @@
 .contenedor {
   display: flex;
-  justify-content: space-around; /* Puedes cambiar a 'space-between' según tus preferencias */
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a medida que el espacio se reduce */
 }
 
-.tarjeta {
+.card {
   background-color: #fff;
   border-radius: 10px;
   padding: 10px;
-  margin: 0 5px; /* Ajusta el margen horizontal entre las tarjetas según tus preferencias */
-  width: 270px;
-  height: 100%; /* Fija la altura de todas las tarjetas al 100% del contenedor */
+  margin-bottom: 20px; /* Espacio entre las tarjetas */
+  width: calc(33.33% - 20px); /* Calcula el ancho de cada tarjeta para mostrar tres tarjetas por fila con un margen entre ellas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+
+/* Estilos para los elementos internos de la tarjeta */
+.perfil-card-agregar img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+h5 {
+  margin: 5px 0;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  margin-top: 10px;
 }
 
-.btn-actualizar {
-  background-color: #a84a14;
-  border-radius: 10px;
+.buttons a,
+.buttons button {
+  padding: 5px 10px;
   border: none;
-  padding: 8px 15px;
-  width: 120px;
-  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.btn-eliminar {
-  background-color: transparent;
-  border-radius: 10px;
-  border: solid 1px #101296;
-  padding: 8px 15px;
-  width: 120px;
-  color: #101296;
-}
-
-.btn-agregar {
-  background-color: orangered;
-  border-radius: 10px;
-  border: none;
-  padding: 8px 15px;
-  width: 120px;
-  color: #fff;
-}
-
-.perfil-card-agregar img {
-  width: 245px;
-  height: 170px;
-  border-radius: 10px;
-}
-
-h5 {
-  font-size: 18px;
-  font-weight: 600;
+.buttons a:hover,
+.buttons button:hover {
+  background-color: #f0f0f0;
 }

@@ -6,6 +6,13 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 import { CardPerfilComponent } from './components/perfil/card-perfil/card-perfil.component';
 import { CardPerfilDatosComponent } from './components/perfil/card-perfil-datos/card-perfil-datos.component';
@@ -72,7 +79,18 @@ import { CategoriaTallerComponent } from './pages/categoria-taller/categoria-tal
     BrowserAnimationsModule,
     MatDialogModule,
     FullCalendarModule,
-    NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    MatInputModule,
+    NgxToastNotifierModule.forRoot({
+      bgColors : {
+      success  : '#9DB2C3'
+      }
+    }
+      
+    ), // NgxToastNotifierModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+
+.container-calendario {
+    margin: 10px;
+    height: 100px;
+    display: inline-block; /* Para que el contenedor se ajuste al ancho del contenido */
+}
+
+.container-calendario input[type="date"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 100px;
+    width: 100px; /* Ajusta el ancho según lo necesites */
+}
+
+
+
+

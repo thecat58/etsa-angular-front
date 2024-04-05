@@ -24,6 +24,8 @@ const routes: Routes = [
   {path: 'detalle-taller',component: DetalleTallerComponent},
   {path: 'ubicacion-taller',component: UbicacionTallerComponent},
   {path: 'categoria-taller',component: CategoriaTallerComponent},
+  
+
   // este simpre va de ultomo si no da error 
 { path: '**', component: Error400Component },
   

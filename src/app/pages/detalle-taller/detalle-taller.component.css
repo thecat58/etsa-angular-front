@@ -4,9 +4,11 @@
 }
 
 .imagen-container {
-  flex: 1 0 40%; /* La imagen ocupa el 40% del ancho en todas las pantallas */
-  margin-right: 20px;
-  margin-bottom: 20px;
+  flex: 1 0 250px; /* La imagen ocupa el 40% del ancho en todas las pantallas */
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 250px;
+  
 }
 
 .imagen {
@@ -66,16 +68,16 @@
   border-radius: 50%; /* Borde redondeado para una apariencia circular */
   margin-right: 10px; /* Espacio entre la imagen y el contenido de la opinión */
 }
+
 .descripcion-container {
-  flex: 0 0 50%; /* El contenedor de descripción ocupa todo el ancho disponible */
+  flex: 0 0 calc(50% - 100px); /* El contenedor de descripción ocupa el 50% menos 70px de margen */
   background-color: white;
-  padding: 20px;
   border-radius: 10px;
   height: 250px;
   margin-left: 20px;
   margin-bottom: 20px;
+  margin-top: -150px; /* Ajuste para desplazar el contenedor hacia arriba */
   text-align: center;
-  width: 50px;
  
 }
 .categoria-taller .contenido-lateral {
