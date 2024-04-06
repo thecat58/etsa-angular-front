@@ -36,9 +36,11 @@ export class ModalPerfilComponent {
     this.fromUsuario = this.formulario.group({
       foto: ['', Validators.required],
       name: ['', Validators.required],
-      description: ['', Validators.required],
-      direccion: ['', Validators.required],
-      password: ['', Validators.required]
+      correo: ['', Validators.required],
+      primer_apellido: ['', Validators.required],
+      password: ['', Validators.required],
+      email: ['', Validators.required],
+      n_iemaildentificacion: ['', Validators.required],
 
     });
   }
@@ -56,7 +58,7 @@ export class ModalPerfilComponent {
         foto: this.data.foto,
         password: this.data.password,
         email: this.data.email,
-        n_identificacion: this.data.n_identificacion
+        n_iemaildentificacion: this.data.n_identificacion
       });
     }
   }

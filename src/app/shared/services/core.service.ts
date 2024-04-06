@@ -120,6 +120,8 @@ export class CoreService {
           localStorage.setItem('usuario', JSON.stringify(datos.user));
           localStorage.setItem('usuarioId', datos.user.id);
           localStorage.setItem('usuariofoto', datos.user.foto);
+          localStorage.setItem('usuariovededor', datos.user.vededor);
+
 
   
           if (datos.user.vededor) {

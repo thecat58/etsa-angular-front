@@ -32,7 +32,7 @@ export class TallerComponent {
 
   mostrarTalleres(): void {
     this.talleresMostrados = this.talleres.slice(0, this.cantidadMostrar);
-    console.log(this.talleresMostrados);
+    console.log(this.talleresMostrados,);
   }
 
   verMas(): void {
@@ -41,6 +41,6 @@ export class TallerComponent {
   }
   seleccionarTaller(taller: tallerModel): void {
     this.tallerSeleccionado = taller;
-    console.log(this.tallerSeleccionado = taller)
+    console.log(this.tallerSeleccionado = taller,'taller mostyrado')
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserModel } from 'src/app/shared/models/user.model';
 import { environment } from 'src/environments/environment';
+import { CoreService } from 'src/app/shared/services/core.service';
 
 @Component({
   selector: 'app-card-perfil',
@@ -11,7 +12,10 @@ export class CardPerfilComponent {
   usuarioGuardado: UserModel | null = null;
    API_URL = environment.http;
 
-  constructor() { }
+  constructor(
+    private _CoreService: CoreService
+
+  ) { }
 
   ngOnInit(): void {
     const usuarioGuardadoString = localStorage.getItem('usuario');
@@ -24,5 +28,10 @@ export class CardPerfilComponent {
     } else {
       console.log('No se encontraron datos de usuario en el localStorage');
     }
+  }
+
+  cerrarcesion(){
+    this._CoreService.logout();
+  console.log('se serro secion');
   }
 }

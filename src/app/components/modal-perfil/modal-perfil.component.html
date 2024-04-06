@@ -14,18 +14,30 @@
       
     
         <div class="form-group">
-          <label for="nameInput" class="label">Nombre del Taller</label>
+          <label for="nameInput" class="label">Nombre</label>
           <input type="text" id="nameInput" formControlName="name" class="input">
         </div>
     
         <div class="form-group">
-          <label for="descriptionTextarea" class="label">Descripción</label>
-          <input type="text" id="nameInput" formControlName="description" class="input">
+          <label for="descriptionTextarea" class="label">Apellido</label>
+          <input type="text" id="nameInput" formControlName="primer_apellido" class="input">
         </div>
     
         <div class="form-group">
-          <label for="descriptionTextarea" class="label">Direccion</label>
-          <input type="text" id="nameInput" formControlName="direccion" class="input">
+          <label for="descriptionTextarea" class="label">correo</label>
+          <input type="email" id="nameInput" formControlName="correo" class="input">
+        </div>
+        <div class="form-group">
+          <label for="descriptionTextarea" class="label">email</label>
+          <input type="email" id="nameInput" formControlName="email" class="input">
+        </div>
+        <div class="form-group">
+          <label for="descriptionTextarea" class="label">Contraseña</label>
+          <input type="password" id="nameInput" formControlName="password" class="input">
+        </div>
+        <div class="form-group">
+          <label for="descriptionTextarea" class="label">identificaion</label>
+          <input type="number" id="nameInput" formControlName="n_iemaildentificacion" class="input">
         </div>
     
         <div class="buttons-container">
@@ -35,9 +47,6 @@
           <button mat-button class="save-button">{{data ? 'actualizar': 'Guardar' }} </button>
         </div>
       </form>
-      <div class="form-group">
-        <label for="passwordInput" class="label">Contraseña Actual</label>
-        <input type="password" id="passwordInput" formControlName="password" class="input">
-      </div>
+   
 
 </div>

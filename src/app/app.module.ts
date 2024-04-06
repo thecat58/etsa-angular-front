@@ -28,7 +28,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { TallerComponent } from './pages/taller/taller.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Error400Component } from './components/error400/error400.component';
-import { RejistroComponent } from './pages/rejistro/rejistro.component';
+import { registroComponent } from './pages/registro/registro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { CardUsuarioAgendaComponent } from './components/perfil-usuario/card-usuario-agenda/card-usuario-agenda.component';
 import { ModalUploadComponent } from './components/modal-upload/modal-upload.component';
@@ -61,7 +61,7 @@ import { ModalPerfilComponent } from './components/modal-perfil/modal-perfil.com
     PerfilComponent,
     TallerComponent,
     Error400Component,
-    RejistroComponent,
+    registroComponent,
     PerfilUsuarioComponent,
     CardUsuarioAgendaComponent,
     ModalUploadComponent,

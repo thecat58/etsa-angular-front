@@ -6,7 +6,7 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { TallerComponent } from './pages/taller/taller.component';
 import { Error400Component } from './components/error400/error400.component';
 import { PerfilComponent } from './components/perfil/perfil/perfil.component';
-import { RejistroComponent } from './pages/rejistro/rejistro.component';
+import { registroComponent } from './pages/registro/registro.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { DetalleTallerComponent } from './pages/detalle-taller/detalle-taller.component';
 import { UbicacionTallerComponent } from './pages/ubicacion-taller/ubicacion-taller.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'perfil-venta', component: PerfilComponent },
   {path: 'login',component:LoginComponent, pathMatch: "full"},
   {path: 'taller',component:TallerComponent},
-  {path: 'rejistro',component:RejistroComponent},
+  {path: 'registro',component:registroComponent},
   {path: 'perfil-usuario',component:PerfilUsuarioComponent},  
   {path: 'fullcalendario',component: CalendarComponent},
   {path: 'detalle-taller',component: DetalleTallerComponent},

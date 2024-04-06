@@ -10,9 +10,23 @@
     <li class="menu-item">
         <input type="search" name="Buscar" id="search">
     </li>
-    <li class="item-registrate">
-        <a class="link-registrate" routerLink="rejistro/">Registrate</a>
-    </li>    <li class="item-iniciar">
-        <a class="link-login" routerLink="login/">Iniciar sesion</a>
+    <li class="item-registrate" *ngIf="!usuarioId">
+        <a class="link-registrate" routerLink="registro/">Registrate</a>
     </li>
+    <li class="item-iniciar" *ngIf="!usuarioId">
+        <a class="link-login" routerLink="login/">Iniciar sesión</a>
+    </li>
+    <li class="item-iniciar" *ngIf="usuarioId">
+
+        <ng-container *ngIf="usuarioVendedor; else perfilNormal">
+            <a class="link-registrate" routerLink="perfil-venta/">Perfil</a>
+        </ng-container>
+        <ng-template #perfilNormal>
+            <a class="link-registrate" routerLink="perfil/">Perfil</a>
+        </ng-template>
+    </li>
+    
+
+     
+
 </ul>

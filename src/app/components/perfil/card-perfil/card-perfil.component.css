@@ -46,3 +46,49 @@ h1{
   font-size: 15px;
   font-weight: 600;
 }
+
+
+/* desde aca  */
+
+
+
+
+
+
+.link-registrate{
+  text-decoration: none;
+  color: #E74C3C;
+  border: none;
+}
+
+.link-registrate:hover{
+  color: #9DB2C3;
+}
+
+
+
+
+
+
+.item-iniciar{
+  display: inline-block;
+  border: none;
+  padding: 10px 20px;
+  border: 5px;
+  background-color: #E0E9F0;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
+
+
+
+
+
+
+
+
+

@@ -8,11 +8,11 @@ import { registroModel } from 'src/app/shared/models/registro.model';
 import { registerService } from 'src/app/shared/services/rejister.service';
 
 @Component({
-  selector: 'app-rejistro',
-  templateUrl: './rejistro.component.html',
-  styleUrls: ['./rejistro.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class RejistroComponent {
+export class registroComponent {
   formLogin!: FormGroup;
   fotoURL: string | ArrayBuffer | null = null;
   file = File;
