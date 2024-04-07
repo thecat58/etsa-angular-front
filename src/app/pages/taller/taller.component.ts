@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tallerModel } from 'src/app/shared/models/taller.model';
 import { TallerService } from 'src/app/shared/services/taller.service';
 
@@ -14,7 +15,7 @@ export class TallerComponent {
   tallerSeleccionado: tallerModel = { foto:  new File([],''), nombre: '', ubicacion: '', usuriotaller: '', descripcion:'' }; // Inicializa tallerSeleccionado con un "taller vacío"
   cantidadMostrar: number = 100; // Cantidad de talleres para mostrar inicialmente
 
-  constructor(private tallerService: TallerService) { }
+  constructor(private tallerService: TallerService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.tallerService.traerTaller().subscribe({
@@ -35,12 +36,11 @@ export class TallerComponent {
     console.log(this.talleresMostrados,);
   }
 
-  verMas(): void {
-    this.cantidadMostrar += 3; // Aumenta la cantidad de talleres para mostrar
-    this.mostrarTalleres(); // Vuelve a mostrar los talleres con la nueva cantidad
-  }
-  seleccionarTaller(taller: tallerModel): void {
-    this.tallerSeleccionado = taller;
+ 
+  seleccionarTaller(talleres: tallerModel): void {
+    this.tallerSeleccionado = talleres;
+    const taller=this.tallerSeleccionado
+    this.router.navigate(['detalle-taller', { taller }]);
     console.log(this.tallerSeleccionado = taller,'taller mostyrado')
   }
 }
