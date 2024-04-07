@@ -1,88 +1,42 @@
-<div class="detalle-taller">
-  <div class="imagen-container">
-    <img src="assets/img/imgdetalletaller1.jpg" alt="Imagen del taller" class="imagen">
-  </div>
-  <div class="container-lateral">
-    <div class="opinion opinion1">
-      <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
-      <textarea class="opinion-text" placeholder="Escribe tu opinión aquí..."></textarea>
-
+<div *ngIf="taller">
+  <div class="detalle-taller">
+    <div class="imagen-container">
+      <img class="imgtaller" [src]="taller.foto" alt="Imagen de perfil">
+      <div class="descripcion-container">
+        <br>
+        <h2>{{taller.nombre}}</h2>
+        <h3>Descripción:</h3>
+        <p>{{taller.descripcion}}</p>
+        <h3>Ubicación:</h3>
+        <p>{{taller.ubicacion}}</p>
+      </div>
     </div>
-    <div class="opinion opinion2">
-      <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
-      <textarea class="opinion-text" placeholder="Escribe tu opinión aquí..."></textarea>
+    <!-- Contenedor para los comentarios -->
+    <div class="comentarios-container">
+      <div *ngFor="let comentario of comentarios" class="card">
+        <div class="opinion-box">
+          <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
+          <p class="opinion-text">{{comentario.descripcion}}</p>
+        </div>
+      </div>
     </div>
-
-    <div class="opinion opinion2">
-      <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
-      <textarea class="opinion-text" placeholder="Escribe tu opinión aquí..."></textarea>
+    <!-- Formulario de opinión -->
+    <div class="opinion-box">
+      <form [formGroup]="fromComent" (ngSubmit)="crearComentario()">
+        <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
+        <textarea class="opinion-text" placeholder="Escribe tu opinión aquí..." formControlName="opinion"></textarea>
+        <button class="agregar-comentario" type="submit">Agregar Comentario</button>
+      </form>
     </div>
-    <div>
-      <button class="agregar-comentario">Agregar Comentario</button> <!-- Botón "Agregar Comentario" -->
-    </div>
-  </div>
-  <div class="descripcion-container">
-    <h2>Taller Gonzalez</h2>
-    <p>Especialistas En Electricidad </p>
-    <p>Garantia 1 Año </p>
-    <p>Disfruta nuestros Descuentos </p> 
+    <!-- Fin del formulario de opinión -->
   </div>
 </div>
+
+
+
+
+
 <!-- Contenedor para las tarjetas de categoría de taller -->
 <div class="categorias-container">
-  <div class="categoria-taller">
-    <div class="imagen-container">
-      <button class="arrow-button prev-button">&#10094;</button>
-      <img src="assets/img/imgtarjeta1.jpeg" alt="Imagen del taller" class="imagen">
-    </div>
-    <div class="contenido-lateral">
-      <div class="categoria">TALLER LAMINA Y PINTURA</div>
-  <p><strong>Servicios que ofrecemos:</strong></p>
-  <ul>
-    <li>Reparación de Daños</li>
-    <li>Pintura y Repintura</li>
-    <li>Eliminación de Rayones y Desgastes</li>
-  </ul>
-      <!-- Puedes agregar más contenido relacionado con la categoría aquí -->
-    </div>
-  </div>
-
-  <!-- Segunda tarjeta de categoría de taller -->
-  <div class="categoria-taller">
-    <div class="imagen-container">
-      <img src="assets/img/imgtarjeta1.jpeg" alt="Imagen del taller" class="imagen">
-    </div>
-    <div class="contenido-lateral">
-      <div class="categoria">TALLER MECANICO</div>
-      <p><strong>Servicios que ofrecemos:</strong></p>
-  <ul>
-    <li>Mantenimiento Preventivo y Correctivo</li>
-    <li>Diagnóstico de Fallas</li>
-    <li>Reparación de Motores</li>
-    
-  </ul>
-      <!-- Puedes agregar más contenido relacionado con la categoría aquí -->
-    </div>
-  </div>
-
-  <!-- Tercera tarjeta de categoría de taller -->
-  <div class="categoria-taller">
-    <div class="imagen-container">
-      <img src="assets/img/imgtarjeta1.jpeg" alt="Imagen del taller" class="imagen">
-      <button class="arrow-button next-button">&#10095;</button>
-    </div>
-    <div class="contenido-lateral">
-      <div class="categoria">TALLER ELECTRICO</div>
-      <p><strong>Servicios que ofrecemos:</strong></p>
-  <ul>
-    <li>Diagnóstico y Reparación de Sistema Eléctrico</li>
-    <li>Reparación y Cambio de Alternador</li>
-    <li>Reparación y Cambio de Batería</li>
-  </ul>
-    </div>
-  </div>
+  <app-taller></app-taller>
 </div> <!-- Fin del contenedor de las categorías -->
-
-
-
-

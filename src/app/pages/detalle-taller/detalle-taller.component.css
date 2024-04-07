@@ -1,171 +1,74 @@
-.detalle-taller {
-  display: flex;
-  flex-wrap: wrap;
+.comentarios-container {
+  max-height: 700px; 
+  max-width: 700px; /* Altura máxima para el contenedor de comentarios */
+  /* Altura máxima para el contenedor de comentarios */
+  overflow-y: auto; /* Agrega desplazamiento vertical si el contenido se desborda */
+  margin-bottom: 20px; /* Espacio entre los comentarios y el formulario */
 }
 
-.imagen-container {
-  flex: 1 0 250px; /* La imagen ocupa el 40% del ancho en todas las pantallas */
-  margin-right: 10px;
-  margin-bottom: 10px;
-  height: 250px;
-  
-}
-
-.imagen {
-  width: 100%;
-  height: auto;
-  padding: 20px;
-  border-radius: 30px;
-}
-
-.container-lateral {
-  flex: 0 0 40%;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-  height: 600px;
-  margin-right: 20px;
-  position: relative;
-}
-
-.opinion {
-  background-color: white;
-  padding: 10px;
-  margin-bottom: 20px;
-  height: 30%;
-  border-radius: 20px;
-}
-.opinion-text {
-  width: 100%;
-  height: 90px; /* Ajusta la altura según lo desees */
-  padding: 5px;
+.opinion-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  resize: vertical; /* Permite redimensionar verticalmente */
-  margin-top: 10px; /* Espacio entre la imagen y el área de texto */
+  padding: 10px;
+  margin-top: 10px; /* Espacio entre cada comentario */
+}
+
+.opinion-text {
+  width: calc(100% - 90px); /* Ajusta el ancho del textarea */
+  height: 90px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  resize: vertical;
+  margin-right: 10px;
 }
 
 .agregar-comentario {
-  background-color: rgb(250, 40, 40); /* Color de fondo */
-  color: white; /* Color de texto */
-  padding: 10px 20px; /* Espaciado interno */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Borde redondeado */
-  cursor: pointer; /* Cursor al pasar el mouse */
+  background-color: rgb(250, 40, 40);
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .agregar-comentario:hover {
-  background-color:  rgb(250, 40, 40); /* Cambio de color al pasar el mouse */
+  background-color: #ff0000; /* Cambio de color al pasar el mouse */
 }
-.agregar-comentario {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+
 .user-photo {
-  width: 50px; /* Ancho de la imagen */
-  height: 50px; /* Alto de la imagen */
-  border-radius: 50%; /* Borde redondeado para una apariencia circular */
-  margin-right: 10px; /* Espacio entre la imagen y el contenido de la opinión */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .descripcion-container {
-  flex: 0 0 calc(50% - 100px); /* El contenedor de descripción ocupa el 50% menos 70px de margen */
   background-color: white;
   border-radius: 10px;
   height: 250px;
-  margin-left: 20px;
   margin-bottom: 20px;
-  margin-top: -150px; /* Ajuste para desplazar el contenedor hacia arriba */
-  text-align: center;
- 
-}
-.categoria-taller .contenido-lateral {
-  background-color: white;
-  padding: 10px; /* Reducir el espacio interno */
-  border-radius: 10px;
-  text-align: left; /* Alinear el texto a la izquierda */
-  overflow-y: auto; /* Agregar desplazamiento vertical si el contenido excede la altura */
-  margin-top: 5px; /* Espacio entre la imagen y la descripción */
-  margin-bottom: 5px; /* Espacio entre la descripción y el siguiente elemento */
-  max-height: 200px; /* Altura máxima para la descripción */
+  padding: 10px;
 }
 
-
-.categorias-container {
+.detalle-taller {
   display: flex;
-  margin-left: 20px;
-  position: relative; 
-  overflow-x: auto;
-  white-space: nowrap;
-  scroll-behavior: smooth; /* Agrega un efecto de desplazamiento suave */
-
+  align-items: center;
+  margin-left: 60px;
 }
 
-.categoria-taller {
-  flex: 1;
-  margin-right: 10px; /* Espacio entre las tarjetas */
+.imagen-container {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
 }
 
-.categoria-taller .imagen-container {
-  position: relative;
-  background-color:  rgb(250, 40, 40);
+.imgtaller {
   border-radius: 10px;
-  
-
-}
-
-.categoria-taller .imagen {
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
-
-.categoria-taller .contenido-lateral {
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 5px; /* Espacio entre la imagen y la descripción */
-  height: 50%;
-  margin-bottom: 20%;
-  text-align: center;
-}
-
-.categoria-taller .categoria {
-  font-size: 18px;
-  
-}
-/* Estilos para las flechas */
-.arrow-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.prev-button {
-  left: 10px;
-}
-
-.next-button {
-  right: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

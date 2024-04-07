@@ -37,10 +37,14 @@ export class TallerComponent {
   }
 
  
-  seleccionarTaller(talleres: tallerModel): void {
-    this.tallerSeleccionado = talleres;
-    const taller=this.tallerSeleccionado
-    this.router.navigate(['detalle-taller', { taller }]);
-    console.log(this.tallerSeleccionado = taller,'taller mostyrado')
+  seleccionarTaller(taller: tallerModel): void {
+    this.tallerSeleccionado = taller;
+    this.tallerService.enviarVariable(taller); // Este método debería estar definido en el servicio TallerService
+
+    this.router.navigate(['detalle-taller']);
+    console.log(this.tallerSeleccionado, 'taller mostrado');
   }
+  
+  
+
 }
