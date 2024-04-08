@@ -11,6 +11,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  width: 250px;
   margin-top: 10px; /* Espacio entre cada comentario */
 }
 
@@ -48,7 +49,7 @@
 .descripcion-container {
   background-color: white;
   border-radius: 10px;
-  height: 250px;
+  height: 280px;
   margin-bottom: 20px;
   padding: 10px;
 }
@@ -62,13 +63,45 @@
 .imagen-container {
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 800px;
-  height: 800px;
+
   overflow: hidden;
 }
 
 .imgtaller {
   border-radius: 10px;
-  width: 100%;
+  width: 800px;
+  height: 500px;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #BDC3C7; /* Color azul claro */
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  margin-right: 15px; /* Espacio entre cada ícono, ajusta según sea necesario */
+}
+
+.nav-item:first-child {
+  margin-left: 50px; /* Agrega margen a la izquierda de la primera imagen */
+}
+
+.nav-item:last-child {
+  margin-right: 50px; /* Agrega margen a la derecha de la última imagen */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-icon {
+  max-width: 50px;
   height: auto;
+  display: block;
 }

@@ -6,11 +6,17 @@
         <br>
         <h2>{{taller.nombre}}</h2>
         <h3>Descripción:</h3>
-        <p>{{taller.descripcion}}</p>
-        <h3>Ubicación:</h3>
+        <p>{{taller.descripcion}}</p>  
+        <a [routerLink]="['/ubicacion-taller']" class="nav-link">
+      <img src="./../../../assets/img/icono4.png" alt="Icono 4" class="nav-icon"><h3>Ubicación:</h3>
         <p>{{taller.ubicacion}}</p>
-      </div>
+    </a>
+  </div>
+        
+      </div>  <div class="nav-item">
+  
     </div>
+  
     <!-- Contenedor para los comentarios -->
     <div class="comentarios-container">
       <div *ngFor="let comentario of comentarios" class="card">

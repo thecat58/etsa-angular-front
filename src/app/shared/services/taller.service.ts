@@ -37,9 +37,8 @@ export class TallerService {
     formData.append('ubicacion', taller.ubicacion);
     formData.append('usuriotaller', taller.usuriotaller);
     formData.append('foto', taller.foto);
-    const url: string = `taller/${formData}/`;
 
-    return this._cpreservice.post<tallerModel>(url);
+    return this._cpreservice.post<tallerModel>('taller/',formData);
   }
   traerComent(): Observable<ComentarioModel[]> {
     return this._cpreservice.get<ComentarioModel[]>('Comentarios/');
@@ -49,9 +48,9 @@ export class TallerService {
     comet.puntuacion = comet.puntuacion;
     comet.reptor_taller = comet.reptor_taller;
     comet.ahutor = comet.ahutor;
-    const url: string = `taller/${comet}/`;
 
-    return this._cpreservice.post<ComentarioModel>(url);
+
+    return this._cpreservice.post<ComentarioModel>('Comentarios/',comet);
   }
 
   actualizarTaller(taller: tallerModel) {

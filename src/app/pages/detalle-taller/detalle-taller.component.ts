@@ -29,6 +29,8 @@ export class DetalleTallerComponent {
 
   ) { }
   ngOnInit() {
+
+    this.filter();
     const observable = this.tallerService.obtenerVariable();
     if (observable) {
       observable.subscribe(taller => {
@@ -43,14 +45,13 @@ export class DetalleTallerComponent {
     console.log(this.usuarioId, 'desde el componente usuario venta');
     this.suscriocion = this._coreservice.refresh$.subscribe(()=>{
       this.filter();
-    })
+    })   
+     console.log('tallers:', this.taller.id); // Verify the filtered talleres
+
 }
 
 
 filter(){
-  const usuarioIdString = localStorage.getItem('usuarioId');
-  this.usuarioId = usuarioIdString ? parseInt(usuarioIdString, 10) : null;
-
   // Log usuarioId to verify its value
   console.log('Usuario ID:', this.usuarioId);
 
@@ -62,7 +63,7 @@ filter(){
       // Filter talleres based on usuarioId
       this.comentarios = data.filter(comentarios => comentarios.reptor_taller === this.taller.id);
 
-      console.log('Talleres filtrados:', this.comentarios); // Verify the filtered talleres
+      console.log('comentarios filtrados:', this.comentarios); // Verify the filtered talleres
     },
     error: (err: any) => {
       console.error(err);
