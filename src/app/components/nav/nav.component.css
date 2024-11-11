@@ -3,7 +3,7 @@
 }
 
 ul{
-    background-color: #d14b3c;
+    background-color: #e64c3c;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -67,10 +67,6 @@ ul img {
     border-radius: 5px;
 
 }
-.link-registrate:hover{
-    color: #E0E9F0;
-}
-
 
 .item-iniciar{
     display: inline-block;

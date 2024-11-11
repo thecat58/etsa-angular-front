@@ -47,28 +47,13 @@ h1{
   font-weight: 600;
 }
 
-
 /* desde aca  */
-
-
-
-
-
 
 .link-registrate{
   text-decoration: none;
   color: #E74C3C;
   border: none;
 }
-
-.link-registrate:hover{
-  color: #9DB2C3;
-}
-
-
-
-
-
 
 .item-iniciar{
   display: inline-block;
