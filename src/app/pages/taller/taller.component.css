@@ -1,17 +1,8 @@
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Alinear las tarjetas al principio */
-    flex-direction: row; /* Alinear elementos en una fila */
-  }
-  
- 
-.card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
+  justify-content: flex-start;
+  flex-direction: row;
 }
 
 .card {
@@ -24,13 +15,11 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.card:hover {
-  transform: scale(1.05);
-}
-
 .card-img {
-  height: 200px;
-  width: 284px;
+  width: 100%;
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  object-fit: cover;
+  border: none;
 }
 
 .card-content {
@@ -42,26 +31,57 @@
   font-size: 1.5em;
 }
 
-.card-text {
-  margin: 10px 0;
-  color: #666;
+.location {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el icono y el texto */
+  margin-top: 10px;
 }
+
 .location-icon {
-  max-width: 20px; /* Ajusta el tamaño según tus necesidades */
+  max-width: 20px;
   height: auto;
-  margin-top: 5px; /* Ajusta el margen superior según tus necesidades */
+  margin-right: 8px; /* Espacio entre el ícono y el texto */
 }
+
 .location-text {
   margin: 0;
+  color: #666;
 }
 
 .ver-mas {
   border: none;
   background: none;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-  font: inherit;
+  color: #e64c3c;
+  padding: 10px 20px;
+  font-size: 1em;
   cursor: pointer;
-  outline: inherit;
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s ease-in-out; /* Agregar transición */
+  border-radius: 4px; /* Añadir bordes redondeados */
+  border: 2px solid transparent; /* Fondo del borde transparente */
+}
+
+/* Efecto cuando el cursor pasa por encima */
+.ver-mas:hover {
+  background-color: #e64c3c; /* Fondo color rojo */
+  color: white; /* Cambiar color de texto */
+  transform: scale(1.1); /* Aumentar tamaño del botón */
+  border-color: #e64c3c; /* Borde con color de fondo */
+}
+
+.ver-mas:active {
+  transform: scale(1.05); /* Cuando se hace clic, reduce un poco el tamaño */
+  opacity: 0.8; /* Hace que se vea un poco más opaco al hacer clic */
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Hace que las tarjetas ocupen todo el ancho en pantallas más pequeñas */
+  }
+
+  .card-img {
+    height: auto; /* Ajusta la altura de la imagen proporcionalmente */
+  }
 }

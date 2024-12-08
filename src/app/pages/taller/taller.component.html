@@ -1,14 +1,13 @@
 <div class="container">
   <div *ngFor="let taller of talleresMostrados" class="card">
-    <div class="card">
-      <img [src]="taller.foto" alt="Image 2" class="card-img">
-      <div class="card-content">
-        <h3 class="card-title">{{ taller.nombre }}</h3>
+    <img [src]="taller.foto" alt="Imagen del Taller" class="card-img">
+    <div class="card-content">
+      <h3 class="card-title">{{ taller.nombre }}</h3>
+      <div class="location">
         <img src="./../../../assets/img/imgubicacion.svg" alt="Icono de Ubicación" class="location-icon">
         <p class="location-text">Ubicación: {{ taller.ubicacion }}</p>
       </div>
     </div>
-    <button class="ver-mas" (click)="seleccionarTaller(taller)">ver más</button>
+    <button class="ver-mas" (click)="seleccionarTaller(taller)">Ver más</button>
   </div>
 </div>
-

@@ -1,48 +1,43 @@
 <div *ngIf="taller">
   <div class="detalle-taller">
     <div class="imagen-container">
-      <img class="imgtaller" [src]="taller.foto" alt="Imagen de perfil">
-      <div class="descripcion-container">
-        <br>
-        <h2>{{taller.nombre}}</h2>
-        <h3>Descripción:</h3>
-        <p>{{taller.descripcion}}</p>  
-        <a [routerLink]="['/ubicacion-taller']" class="nav-link">
-      <img src="./../../../assets/img/icono4.png" alt="Icono 4" class="nav-icon"><h3>Ubicación:</h3>
-        <p>{{taller.ubicacion}}</p>
-    </a>
-  </div>
-        
-      </div>  <div class="nav-item">
-  
+      <img class="imgtaller" [src]="taller.foto" alt="Imagen del taller">
     </div>
-  
-    <!-- Contenedor para los comentarios -->
-    <div class="comentarios-container">
-      <div *ngFor="let comentario of comentarios" class="card">
-        <div class="opinion-box">
-          <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
-          <p class="opinion-text">{{comentario.descripcion}}</p>
-        </div>
+    <div class="descripcion-container">
+      <h2>{{taller.nombre}}</h2>
+      <h3>Descripción:</h3>
+      <p>{{taller.descripcion}}</p>
+      <a [routerLink]="['/ubicacion-taller']" class="nav-link">
+        <img src="./../../../assets/img/icono4.png" alt="Icono ubicación" class="nav-icon">
+        <h3>Ubicación:</h3>
+        <p>{{taller.ubicacion}}</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Contenedor de comentarios -->
+  <div class="comentarios-container">
+    <div *ngFor="let comentario of comentarios" class="comentario-card">
+      <div class="opinion-box">
+        <img src="assets/img/imgperfil.png" alt="Foto del Usuario" class="user-photo">
+        <p class="opinion-text">{{comentario.descripcion}}</p>
       </div>
     </div>
-    <!-- Formulario de opinión -->
-    <div class="opinion-box">
-      <form [formGroup]="fromComent" (ngSubmit)="crearComentario()">
-        <img src="assets/img/imgperfil.png" alt="Foto del Usuario 3" class="user-photo">
+  </div>
+
+  <!-- Formulario para agregar comentario -->
+  <div class="opinion-box">
+    <form [formGroup]="fromComent" (ngSubmit)="crearComentario()">
+      <div class="formulario-comentario">
+        <img src="assets/img/imgperfil.png" alt="Foto del Usuario" class="user-photo">
         <textarea class="opinion-text" placeholder="Escribe tu opinión aquí..." formControlName="opinion"></textarea>
         <button class="agregar-comentario" type="submit">Agregar Comentario</button>
-      </form>
-    </div>
-    <!-- Fin del formulario de opinión -->
+      </div>
+    </form>
   </div>
 </div>
-
-
-
-
 
 <!-- Contenedor para las tarjetas de categoría de taller -->
 <div class="categorias-container">
   <app-taller></app-taller>
-</div> <!-- Fin del contenedor de las categorías -->
+</div>

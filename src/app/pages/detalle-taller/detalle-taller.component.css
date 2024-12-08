@@ -1,107 +1,181 @@
-.comentarios-container {
-  max-height: 700px; 
-  max-width: 700px; /* Altura máxima para el contenedor de comentarios */
-  /* Altura máxima para el contenedor de comentarios */
-  overflow-y: auto; /* Agrega desplazamiento vertical si el contenido se desborda */
-  margin-bottom: 20px; /* Espacio entre los comentarios y el formulario */
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-.opinion-box {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  width: 250px;
-  margin-top: 10px; /* Espacio entre cada comentario */
+/* Contenedor principal del taller */
+.detalle-taller {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
-.opinion-text {
-  width: calc(100% - 90px); /* Ajusta el ancho del textarea */
-  height: 90px;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  resize: vertical;
+.imagen-container {
+  flex: 1;
+  max-width: 600px;
+  margin-right: 20px;
+}
+
+.imgtaller {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.descripcion-container {
+  flex: 2;
+  padding: 20px;
+}
+
+.descripcion-container h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.descripcion-container h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.descripcion-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #007BFF;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 30px;
   margin-right: 10px;
 }
 
-.agregar-comentario {
-  background-color: rgb(250, 40, 40);
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Contenedor de comentarios */
+.comentarios-container {
+  max-width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 500px;
 }
 
-.agregar-comentario:hover {
-  background-color: #ff0000; /* Cambio de color al pasar el mouse */
+.comentario-card {
+  margin-bottom: 15px;
+}
+
+.opinion-box {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
 }
 
 .user-photo {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
-.descripcion-container {
-  background-color: white;
-  border-radius: 10px;
-  height: 280px;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-.detalle-taller {
-  display: flex;
-  align-items: center;
-  margin-left: 60px;
-}
-
-.imagen-container {
-  margin-right: 10px;
-  margin-bottom: 10px;
-
-  overflow: hidden;
-}
-
-.imgtaller {
-  border-radius: 10px;
-  width: 800px;
-  height: 500px;
-}
-
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #BDC3C7; /* Color azul claro */
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.nav-item {
-  margin-right: 15px; /* Espacio entre cada ícono, ajusta según sea necesario */
-}
-
-.nav-item:first-child {
-  margin-left: 50px; /* Agrega margen a la izquierda de la primera imagen */
-}
-
-.nav-item:last-child {
-  margin-right: 50px; /* Agrega margen a la derecha de la última imagen */
-}
-
-.nav-link {
-  text-decoration: none;
+.opinion-text {
+  flex: 1;
+  font-size: 16px;
   color: #333;
+  line-height: 1.4;
+  border: none;
+  resize: vertical;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.nav-icon {
-  max-width: 50px;
-  height: auto;
-  display: block;
+/* Estilo para el formulario de comentarios */
+.formulario-comentario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  resize: vertical;
+}
+
+.agregar-comentario {
+  background-color: #FF5733;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.agregar-comentario:hover {
+  background-color: #FF4B30;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .detalle-taller {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-container {
+    max-width: 100%;
+  }
+
+  .descripcion-container {
+    max-width: 100%;
+  }
+
+  .comentarios-container {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .opinion-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-photo {
+    margin-bottom: 10px;
+  }
+
+  .opinion-text {
+    margin-top: 10px;
+  }
 }
